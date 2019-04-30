@@ -6,15 +6,15 @@
 
 
 	<bean class="java.net.URI" id="dbUrl">
-		<constructor-arg value="localhost" />
+		<constructor-arg value="ec2-50-19-114-27.compute-1.amazonaws.com" />
 	</bean>
 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="url"
-			value="jdbc:mysql://localhost/DB_EXAMPLE?useTimezone=true&amp;serverTimezone=UTC" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+			value="jdbc:postgresql://ec2-50-19-114-27.compute-1.amazonaws.com:5432/d3ka5qopqn3fgs?useTimezone=true&amp;serverTimezone=UTC" />
+		<property name="username" value="kdbcgnfcyocoxe" />
+		<property name="password" value="b9bafac4d7f62f6ea4dfbac58be09ddb79d32628f08c6576896dd6545b0ebf7f" />
 	</bean>
 
 	<bean
@@ -26,7 +26,7 @@
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>
 			</props>
 		</property>
 		<property name="persistenceProvider">
