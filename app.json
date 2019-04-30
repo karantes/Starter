@@ -2,7 +2,7 @@
   "name": "Starter",
   "scripts": {
   },
-  "pre-prod": {
+  "env": {
   },
   "formation": {
     "web": {
