@@ -17,8 +17,6 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity(name = "ADM_USERS")
 @Table(name = "ADM_USERS")
 public class User {
@@ -53,7 +51,6 @@ public class User {
 	@Column(name = "bl_first_time_login")
 	private Boolean firstTimeLogin;
 
-	@JsonIgnore
 	@OneToMany
 	@JoinTable
 	@LazyCollection(LazyCollectionOption.FALSE)
