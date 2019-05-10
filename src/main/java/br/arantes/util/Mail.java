@@ -19,13 +19,13 @@ import javax.mail.internet.MimeMultipart;
 
 public class Mail {
 
-	private final String username = "suporte@grupocereal.com.br";
+	private final String username = "sup.start.project@gmail.com";
 
-	private final String password = "#8uB84L0o,1";
+	private final String password = "#St4rt3r!";
 
-	private String from = "suporte@grupocereal.com.br";
+	private String from = "sup.start.project@gmail.com";
 
-	private String host = "smtp.exchangecorp.com.br";
+	private String host = "smtp.gmail.com";
 
 	private String port = "587";
 

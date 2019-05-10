@@ -16,11 +16,6 @@ public class LoginController {
 
 	@RequestMapping("/login")
 	public String login(Model model) {
-		userRepository.findAll().forEach(user -> {
-			System.out.println(user.getEmail());
-			System.out.println(user.getRoles().get(0).getName());
-		});
-
 		model.addAttribute("appName", AppConfiguration.getAppname());
 		return "login";
 	}

@@ -17,8 +17,8 @@ public class RoleController {
 	@RequestMapping(value = "roles")
 	public String showRoles(Model model, Principal principal) {
 		try {
-//			if (principal == null)
-//				return "redirect:/login.html?authenticate=false";
+			if (principal == null)
+				return "redirect:/login.html?authenticate=false";
 
 			model.addAttribute("roles", roleService.findAll());
 			return "roles";

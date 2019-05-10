@@ -5,61 +5,75 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<div class="page-header clear-filter">
-	<div class="page-header-image"
-		style="background-image: url(/resources/images/food-1932466_1920.jpg)"></div>
-	<div class="content">
-		<div class="container">
-			<div class="card card-login card-plain">
-				<form action="/login" method="POST">
-					<div class="card-header text-center">
-						<div class="logo-container">
-							<img src="/resources/plugins/nowUIKit/img/now-logo.png" alt="">
-						</div>
-					</div>
-					<div class="card-body">
-						<div class="input-group no-border input-lg">
-							<div class="input-group-prepend">
-								<span class="input-group-text"> <i
-									class="now-ui-icons ui-1_email-85"></i>
-								</span>
+
+<div class="app-content content">
+	<div class="content-wrapper">
+		<div class="content-header row"></div>
+		<div class="content-body">
+			<section class="flexbox-container">
+				<div class="col-12 d-flex align-items-center justify-content-center">
+					<div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
+						<div class="card border-grey border-lighten-3 m-0">
+							<div class="card-header border-0">
+								<div class="card-title text-center">
+									<div class="p-1">
+										<img class="brand-logo" src="/resources/stack-admin/app-assets/images/logo/stack-logo.png"
+											alt="branding logo">Starter Project
+									</div>
+								</div>
+								<h6
+									class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
+									<span>Easily Using</span>
+								</h6>
 							</div>
-							<input type="text" class="form-control" name="username"
-								id="username" placeholder="Email..." required="required"
-								autocomplete="off">
-						</div>
-						<div class="input-group no-border input-lg">
-							<div class="input-group-prepend">
-								<span class="input-group-text"> <i
-									class="now-ui-icons objects_key-25"></i>
-								</span>
+							<div class="card-content">
+								<div class="card-body pt-0">
+									<form class="form-horizontal" action="#">
+										<fieldset class="form-group floating-label-form-group">
+											<label for="user-name">Your Username</label> <input
+												type="text" class="form-control" id="user-name"
+												placeholder="Your Username">
+										</fieldset>
+										<fieldset class="form-group floating-label-form-group mb-1">
+											<label for="user-password">Enter Password</label> <input
+												type="password" class="form-control" id="user-password"
+												placeholder="Enter Password">
+										</fieldset>
+										<div class="form-group row">
+											<div class="col-sm-6 col-12 text-center text-sm-left">
+												<fieldset>
+													<input type="checkbox" id="remember-me"
+														class="chk-remember"> <label for="remember-me">
+														Remember Me</label>
+												</fieldset>
+											</div>
+											<div
+												class="col-sm-6 col-12 float-sm-left text-center text-sm-right">
+												<a href="#" class="card-link">Forgot
+													Password?</a>
+											</div>
+										</div>
+										<button type="submit"
+											class="btn btn-outline-primary btn-block">
+											<i class="ft-unlock"></i> Login
+										</button>
+									</form>
+								</div>
+								<p
+									class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+									<span>New User ?</span>
+								</p>
+								<div class="card-body">
+									<a href="#" class="btn btn-outline-danger btn-block"><i
+										class="ft-user"></i> Register</a>
+								</div>
 							</div>
-							<input type="password" placeholder="Senha..." name="password"
-								id="password" class="form-control" required="required"
-								autocomplete="off" />
 						</div>
 					</div>
-					<div class="card-footer text-center">
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" class="form-control" />
-						<button type="submit"
-							class="btn btn-primary btn-round btn-lg btn-block">
-							Login</button>
-					</div>
-					<div class="pull-left">
-						<h6>
-							<a href="#" class="link">Criar Conta</a>
-						</h6>
-					</div>
-					<div class="pull-right">
-						<h6>
-							<a href="#" class="link">Precisa de Ajuda?</a>
-						</h6>
-					</div>
-				</form>
-			</div>
+				</div>
+			</section>
+
 		</div>
 	</div>
 </div>
