@@ -27,7 +27,7 @@ public class AppWebConfiguration implements WebMvcConfigurer {
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/");
+		resolver.setPrefix("/WEB-INF/jsp/admin/");
 		resolver.setSuffix(".jsp");
 
 		return resolver;
