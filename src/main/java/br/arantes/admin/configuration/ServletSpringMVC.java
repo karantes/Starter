@@ -46,7 +46,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		super.onStartup(servletContext);
 		servletContext.addListener(RequestContextListener.class);
-		servletContext.setInitParameter("spring.profiles.active", "dev");
+		servletContext.setInitParameter("spring.profiles.active", "pre-prod");
 	}
 
 }
