@@ -37,6 +37,8 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return new Filter[] { encodingFilter, new OpenEntityManagerInViewFilter() };
 	}
 
+	// veja tbm
+	// https://cursos.alura.com.br/forum/topico-atualizacao-resources-nao-sao-carregados-na-aula-10-58813
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		registration.setMultipartConfig(new MultipartConfigElement(""));
@@ -46,7 +48,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		super.onStartup(servletContext);
 		servletContext.addListener(RequestContextListener.class);
-		servletContext.setInitParameter("spring.profiles.active", "pre-prod");
+		servletContext.setInitParameter("spring.profiles.active", "dev");
 	}
 
 }
