@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -18,55 +17,37 @@
 							<div class="card-header border-0">
 								<div class="card-title text-center">
 									<div class="p-1">
-										<img class="brand-logo" src="/resources/stack-admin/app-assets/images/logo/stack-logo.png"
-											alt="branding logo">Starter Project
+										<img class="brand-logo" src="/resources/stack-admin/app-assets/images/logo/stack-logo.png" alt="branding logo">Starter Project
 									</div>
 								</div>
-								<h6
-									class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-									<span>Easily Using</span>
+								<h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
+									<span>Facil Acesso</span>
 								</h6>
 							</div>
 							<div class="card-content">
 								<div class="card-body pt-0">
 									<form class="form-horizontal" action="#">
 										<fieldset class="form-group floating-label-form-group">
-											<label for="user-name">Your Username</label> <input
-												type="text" class="form-control" id="user-name"
-												placeholder="Your Username">
+											<input type="text" class="form-control" id="username" name="username" placeholder="Usuário">
 										</fieldset>
 										<fieldset class="form-group floating-label-form-group mb-1">
-											<label for="user-password">Enter Password</label> <input
-												type="password" class="form-control" id="user-password"
-												placeholder="Enter Password">
+											<input type="password" class="form-control" id="password" name="password" placeholder="Senha">
 										</fieldset>
-										<div class="form-group row">
-											<div class="col-sm-6 col-12 text-center text-sm-left">
-												<fieldset>
-													<input type="checkbox" id="remember-me"
-														class="chk-remember"> <label for="remember-me">
-														Remember Me</label>
-												</fieldset>
-											</div>
-											<div
-												class="col-sm-6 col-12 float-sm-left text-center text-sm-right">
-												<a href="#" class="card-link">Forgot
-													Password?</a>
+										<div class="form-group row pull-right">
+											<div class="col-sm-12 col-12">
+												<a href="#" class="card-link">Esqueceu a senha?</a>
 											</div>
 										</div>
-										<button type="submit"
-											class="btn btn-outline-primary btn-block">
-											<i class="ft-unlock"></i> Login
+										<button type="submit" class="btn btn-outline-primary btn-block">
+											<i class="ft-unlock"></i> Entrar
 										</button>
 									</form>
 								</div>
-								<p
-									class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
-									<span>New User ?</span>
+								<p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+									<span>Novo aqui ?</span>
 								</p>
 								<div class="card-body">
-									<a href="#" class="btn btn-outline-danger btn-block"><i
-										class="ft-user"></i> Register</a>
+									<a href="#" class="btn btn-outline-danger btn-block"><i class="ft-user"></i> Registrar</a>
 								</div>
 							</div>
 						</div>
