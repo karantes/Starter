@@ -26,7 +26,7 @@
 							</div>
 							<div class="card-content">
 								<div class="card-body pt-0">
-									<form class="form-horizontal" action="#">
+									<form class="form-horizontal" action='<spring:url value="/login"/>' method="post" novalidate>
 										<fieldset class="form-group floating-label-form-group">
 											<input type="text" class="form-control" id="username" name="username" placeholder="Usuário">
 										</fieldset>
@@ -41,6 +41,7 @@
 										<button type="submit" class="btn btn-outline-primary btn-block">
 											<i class="ft-unlock"></i> Entrar
 										</button>
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" class="form-control" />
 									</form>
 								</div>
 								<p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">

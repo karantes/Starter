@@ -1,6 +1,7 @@
 package br.arantes.admin.entity;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,10 +17,17 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity(name = "ADM_USERS")
 @Table(name = "ADM_USERS")
-public class User {
+public class User implements UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7262270030508421696L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -88,6 +96,7 @@ public class User {
 		this.email = email;
 	}
 
+	@Override
 	public String getPassword() {
 		return password;
 	}
@@ -134,6 +143,36 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.roles;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.idLegal;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return this.enabled;
 	}
 
 }

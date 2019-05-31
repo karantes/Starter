@@ -14,8 +14,6 @@ public class HomeController {
 
 	@RequestMapping(value = "/home")
 	public String showHome(Model model, Principal principal, HttpServletResponse response, HttpServletRequest request) {
-		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
 
 		return "home";
 	}
