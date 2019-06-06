@@ -27,10 +27,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/home").authenticated()
-		.antMatchers("/error-400", "/error-403", "/error-404").permitAll()
-		.and().formLogin().loginPage("/login").defaultSuccessUrl("/home").failureUrl("/login?authenticate=false")
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll().logoutSuccessUrl("/login");
+		http.authorizeRequests().antMatchers("/").permitAll();
+		
+		
+//		.authenticated()
+//		.antMatchers("/error-400", "/error-403", "/error-404").permitAll()
+//		.and().formLogin().loginPage("/login").defaultSuccessUrl("/home").failureUrl("/login?authenticate=false")
+//		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll().logoutSuccessUrl("/login");
 	}
 
 	@Override
