@@ -41,15 +41,15 @@
 	<div class="navbar-container main-menu-content" data-menu="menu-container">
 		<ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
 
-<%-- 			<security:authorize access="hasAuthority('ROLE_ADMIN')"> --%>
+			<security:authorize access="hasAuthority('ROLE_ADMIN')">
 				<li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="ft-settings"></i><span>Admin</span></a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href='<spring:url value="/users.html"/>'>Usuarios </a></li>
 						<li><a class="dropdown-item" href='<spring:url value="/roles.html"/>'>Roles</a></li>
 						<li><a class="dropdown-item" href='<spring:url value="/logs.html"/>'>Logs</a></li>
 					</ul></li>
-<%-- 			</security:authorize> --%>
-<%-- 			<security:authorize access="hasAuthority('ROLE_ADMIN')||hasAuthority('ROLE_TRANSPORTADORA')"> --%>
+			</security:authorize>
+			<security:authorize access="hasAuthority('ROLE_ADMIN')||hasAuthority('ROLE_TRANSPORTADORA')">
 				<li class="dropdown mega-dropdown nav-item" data-menu="megamenu"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="ft-box"></i><span>Pamcard</span></a>
 					<ul class="mega-dropdown-menu dropdown-menu row">
 						<li class="col-md-3" data-mega-col="col-md-3">
@@ -103,7 +103,7 @@
 							</ul>
 						</li>
 					</ul></li>
-<%-- 			</security:authorize> --%>
+			</security:authorize>
 		</ul>
 	</div>
 </div>

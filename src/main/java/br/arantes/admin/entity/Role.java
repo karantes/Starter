@@ -13,9 +13,6 @@ import org.springframework.security.core.GrantedAuthority;
 @Table(name = "ADM_ROLES")
 public class Role implements GrantedAuthority {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 666901998313496392L;
 
 	@Id

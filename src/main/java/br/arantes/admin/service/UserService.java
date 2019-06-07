@@ -3,7 +3,6 @@ package br.arantes.admin.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -38,8 +37,11 @@ public class UserService implements UserDetailsService {
 		return userRepository.findByIdLegal(cpf);
 	}
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return userRepository.findByIdLegal(username);
+	public User loadUserByUsername(String idLegal) {
+		User user = userRepository.findByIdLegal(idLegal);
+		if (user == null)
+			throw new UsernameNotFoundException("Usuario " + idLegal + " não encontrado");
+		System.out.println(user.getPassword());
+		return user;
 	}
 }

@@ -19,14 +19,12 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity(name = "ADM_USERS")
 @Table(name = "ADM_USERS")
 public class User implements UserDetails {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7262270030508421696L;
 
 	@Id
@@ -62,6 +60,7 @@ public class User implements UserDetails {
 	@OneToMany
 	@JoinTable
 	@LazyCollection(LazyCollectionOption.FALSE)
+//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Role> roles;
 
 	public Integer getId() {
@@ -102,7 +101,7 @@ public class User implements UserDetails {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = new BCryptPasswordEncoder().encode(password);
 	}
 
 	public Calendar getDtCadastro() {
@@ -157,17 +156,17 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
