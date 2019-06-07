@@ -28,6 +28,51 @@
 		</put-list-attribute>
 	</definition>
 
+	<definition name="common" template="/WEB-INF/layout/classic.jsp">
+		<put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/vendors.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/selects/select2.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/extensions/unslider.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/bootstrap.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/bootstrap-extended.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/colors.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/components.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.css" />
+			<add-attribute value="/resources/stack-admin/jquery-ui.css" />
+			<add-attribute value="/resources/stack-admin/assets/css/style.css" />
+		</put-list-attribute>
+		<put-list-attribute name="javascripts">
+			<add-attribute value="/resources/stack-admin/jquery.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/vendors.min.js" />
+			<add-attribute value="/resources/stack-admin/jquery-ui.js" />
+			<add-attribute value="/resources/stack-admin/jquery.maskMoney.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/datatables.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/jszip.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/pdfmake.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/vfs_fonts.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.html5.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.print.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/ui/jquery.sticky.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/extensions/unslider-min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/charts/jquery.sparkline.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/select/select2.full.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/ui/breadcrumbs-with-stats.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js" />
+			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/forms/select/form-select2.min.js" />
+		</put-list-attribute>
+	</definition>
+
 	<definition name="error-400" extends="common-clean">
 		<put-attribute name="title" value="error-400" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-400.jsp" />
@@ -46,6 +91,11 @@
 	<definition name="login" extends="common-clean">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/login.jsp" />
+	</definition>
+
+	<definition name="home" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
+		<put-attribute name="title" value="Home" />
 	</definition>
 
 </tiles-definitions>

@@ -1,20 +1,9 @@
-<footer class="footer">
-	<div class="container">
-		<nav>
-			<ul>
-				<li><a href="#"> Duvidas </a></li>
-				<li><a href="#"> Sobre </a></li>
-				<li><a href="#"> Blog </a></li>
-			</ul>
-		</nav>
-		<div class="copyright" id="copyright">
-			&copy;
-			<script type="text/javascript">
-				document.getElementById('copyright').appendChild(
-						document.createTextNode(new Date().getFullYear()))
-			</script>
-			,Coded by <a href="#" target="_blank">Kaique Arantes</a>.
-		</div>
-	</div>
+<br><br>
+<footer class="footer footer-static footer-light navbar-shadow fixed-bottom" >
+	<p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2 container center-layout">
+		<span class="float-md-left d-block d-md-inline-block"> Copyright<span id="copyright"> &copy; <script type="text/javascript">
+			document.getElementById('copyright').appendChild(
+					document.createTextNode(new Date().getFullYear()))
+		</script> <a class="text-bold-800 grey darken-2" href="#">STARTER PROJECT </a></span>
+	</p>
 </footer>
-
