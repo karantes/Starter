@@ -60,7 +60,6 @@ public class User implements UserDetails {
 	@OneToMany
 	@JoinTable
 	@LazyCollection(LazyCollectionOption.FALSE)
-//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Role> roles;
 
 	public Integer getId() {
