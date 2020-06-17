@@ -42,10 +42,6 @@
 		<import resource="database-dev.xml" />
 	</beans>
 
-	<beans profile="pre-prod">
-		<import resource="database-pre-prod.xml" />
-	</beans>
-
 	<beans profile="prod">
 		<import resource="database-prod.xml" />
 	</beans>

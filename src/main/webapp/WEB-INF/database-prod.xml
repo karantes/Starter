@@ -5,14 +5,14 @@
 
 
 	<bean class="java.net.URI" id="dbUrl">
-		<constructor-arg value="SRV-DB-01" />
+		<constructor-arg value="[IP/NOME DO SERVIDOR]" />
 	</bean>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url" value="jdbc:sqlserver://SRV-DB-01:1433;databaseName=CHRONOS;sendStringParametersAsUnicode=false" />
-		<property name="username" value="USR_CHRONOS" />
-		<property name="password" value="cHnoss@mG%C" />
+		<property name="url" value="jdbc:sqlserver://[IP/NOME DO SERVIDOR]:[PORTA];databaseName=[BANCO];sendStringParametersAsUnicode=false" />
+		<property name="username" value="[USUARIO]" />
+		<property name="password" value="[SENHA]" />
 	</bean>
 
 

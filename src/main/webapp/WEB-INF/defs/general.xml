@@ -69,7 +69,7 @@
 			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/ui/breadcrumbs-with-stats.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js" />
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
-			<add-attribute value="/resources/users.js" />
+			<add-attribute value="/resources/js/default.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/forms/select/form-select2.min.js" />
 		</put-list-attribute>
 	</definition>
