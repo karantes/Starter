@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Files {
+
 	public static String createFile(MultipartFile file, ServletContext context) {
 		String caminhoArquivo = "";
 		System.out.println(context.getContextPath());
@@ -26,7 +27,7 @@ public class Files {
 				file.transferTo(dir);
 				caminhoArquivo = dir.getCanonicalPath();
 
-			} catch (java.lang.Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -39,11 +40,9 @@ public class Files {
 		if (!file.isEmpty()) {
 			File dir;
 			if (System.getProperty("os.name").contains("Windows"))
-				dir = new File("C:/Arquivo Download/arquivos/" + folder + "/" + new Date().getTime() + "_"
-						+ file.getOriginalFilename());
+				dir = new File("C:/Arquivo Download/arquivos/" + folder + "/" + new Date().getTime() + "_" + file.getOriginalFilename());
 			else
-				dir = new File("opt/tomcat/webapps/arquivos/" + folder + "/" + new Date().getTime() + "_"
-						+ file.getOriginalFilename());
+				dir = new File("opt/tomcat/webapps/arquivos/" + folder + "/" + new Date().getTime() + "_" + file.getOriginalFilename());
 			try {
 
 				if (!dir.exists())
@@ -52,7 +51,7 @@ public class Files {
 				file.transferTo(dir);
 				caminhoArquivo = dir.getCanonicalPath();
 
-			} catch (java.lang.Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
@@ -62,8 +61,7 @@ public class Files {
 	public static void downloadFile(HttpServletRequest request, HttpServletResponse response, String path) {
 
 		File downloadFile = new File(path);
-		try (FileInputStream inputStream = new FileInputStream(downloadFile);
-				OutputStream outStream = response.getOutputStream();) {
+		try (FileInputStream inputStream = new FileInputStream(downloadFile); OutputStream outStream = response.getOutputStream();) {
 
 			String mimeType = "application/octet-stream";
 

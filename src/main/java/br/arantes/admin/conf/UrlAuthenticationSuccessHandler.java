@@ -1,4 +1,4 @@
-package br.arantes.admin.controller;
+package br.arantes.admin.conf;
 
 import java.io.IOException;
 import java.util.Collection;

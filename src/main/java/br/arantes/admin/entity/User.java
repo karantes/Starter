@@ -31,7 +31,7 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "tx_nome")
+	@Column(name = "tx_name")
 	private String name;
 
 	@Column(unique = true, name = "idLegal")

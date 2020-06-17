@@ -27,7 +27,7 @@ public class InitDbService {
 
 	@PostConstruct
 	public void init() {
-		if (userRepository.findAll().isEmpty())
+		if (userRepository.count() == 0)
 			usersTest();
 
 	}
@@ -42,7 +42,7 @@ public class InitDbService {
 		rolesAdmin.add(adminRole);
 
 		User admin = new User();
-		admin.setName("Kaique Arantes");
+		admin.setName("Kaique Arantes Costa");
 		admin.setDtCadastro(Calendar.getInstance());
 		admin.setIdLegal("123456789");
 		admin.setEmail("kaiquearantes@hotmail.com");
