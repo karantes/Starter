@@ -4,27 +4,27 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="common-clean" template="/WEB-INF/layout/classic-clean.jsp">
-		<put-list-attribute name="stylesheets">
+		<put-list-attribute name="cssVendors">
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/vendors.min.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/icheck/icheck.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/icheck/custom.css" />
+		</put-list-attribute>
+		<put-list-attribute name="cssTheme">
 			<add-attribute value="/resources/stack-admin/app-assets/css/bootstrap.min.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/css/bootstrap-extended.min.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/css/colors.min.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/css/components.min.css" />
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/vertical-overlay-menu.min.css" />
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.min.css" />
-			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="cssCustom">
 			<add-attribute value="/resources/stack-admin/assets/css/style.css" />
 		</put-list-attribute>
-		<put-list-attribute name="javascripts">
-			<add-attribute value="/resources/plugins/jQuery/jquery-3.3.1.min.js" />
+
+		<put-list-attribute name="jsVendors">
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/vendors.min.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/icheck/icheck.min.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.min.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.min.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/forms/form-login-register.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="jsTheme">
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.js" />
 		</put-list-attribute>
 	</definition>
 
@@ -67,7 +67,8 @@
 			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.min.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.min.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/ui/breadcrumbs-with-stats.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js" />
+			<add-attribute
+				value="/resources/stack-admin/app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js" />
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
 			<add-attribute value="/resources/js/default.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/forms/select/form-select2.min.js" />
@@ -92,6 +93,21 @@
 	<definition name="login" extends="common-clean">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/login.jsp" />
+		<put-list-attribute name="cssPage">
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsPageVendors">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/ui/jquery.sticky.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/charts/jquery.sparkline.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/icheck/icheck.min.js" />
+		</put-list-attribute>
+		<put-list-attribute name="jsPage">
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/ui/breadcrumbs-with-stats.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/forms/form-login-register.js" />
+		</put-list-attribute>
 	</definition>
 
 	<definition name="home" extends="common">
