@@ -1,13 +1,14 @@
 package br.arantes.admin.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.arantes.admin.entity.Role;
@@ -41,17 +42,19 @@ public class InitDbService {
 		List<Role> rolesAdmin = new ArrayList<Role>();
 		rolesAdmin.add(adminRole);
 
-		User admin = new User();
-		admin.setName("Kaique Arantes Costa");
-		admin.setDtCadastro(Calendar.getInstance());
-		admin.setIdLegal("123456789");
-		admin.setEmail("kaiquearantes@hotmail.com");
-		admin.setEnabled(true);
-		admin.setFirstTimeLogin(true);
-		admin.setPassword("1234");
-		admin.setRoles(rolesAdmin);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-		userRepository.save(admin);
+		User kaique = new User();
+		kaique.setName("Kaique Arantes Costa");
+		kaique.setDtCadastro(LocalDateTime.now());
+		kaique.setIdLegal("123456789");
+		kaique.setEmail("kaiquearantes@hotmail.com");
+		kaique.setEnabled(true);
+		kaique.setFirstTimeLogin(true);
+		kaique.setPassword(encoder.encode("1234"));
+		kaique.setRoles(rolesAdmin);
+
+		userRepository.save(kaique);
 
 	}
 

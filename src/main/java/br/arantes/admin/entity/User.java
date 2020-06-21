@@ -1,7 +1,6 @@
 package br.arantes.admin.entity;
 
-import java.util.Calendar;
-import java.util.Collection;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,29 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity(name = "ADM_USERS")
 @Table(name = "ADM_USERS")
-public class User implements UserDetails {
-
-	private static final long serialVersionUID = -7262270030508421696L;
+public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(name = "tx_name")
 	private String name;
 
-	@Column(unique = true, name = "idLegal")
+	@Column(unique = true, name = "id_legal")
 	private String idLegal;
 
 	@Column(name = "tx_email")
@@ -43,13 +36,13 @@ public class User implements UserDetails {
 	@Column(name = "tx_password")
 	private String password;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_cadastro")
-	private Calendar dtCadastro;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime dtCadastro;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dt_alteracao")
-	private Calendar dtAlteracao;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	private LocalDateTime dtAlteracao;
 
 	@Column(name = "bl_enabled")
 	private Boolean enabled;
@@ -94,28 +87,27 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
-	@Override
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
-		this.password = new BCryptPasswordEncoder().encode(password);
+		this.password = password;
 	}
 
-	public Calendar getDtCadastro() {
+	public LocalDateTime getDtCadastro() {
 		return dtCadastro;
 	}
 
-	public void setDtCadastro(Calendar dtCadastro) {
+	public void setDtCadastro(LocalDateTime dtCadastro) {
 		this.dtCadastro = dtCadastro;
 	}
 
-	public Calendar getDtAlteracao() {
+	public LocalDateTime getDtAlteracao() {
 		return dtAlteracao;
 	}
 
-	public void setDtAlteracao(Calendar dtAlteracao) {
+	public void setDtAlteracao(LocalDateTime dtAlteracao) {
 		this.dtAlteracao = dtAlteracao;
 	}
 
@@ -141,36 +133,6 @@ public class User implements UserDetails {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
-	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.roles;
-	}
-
-	@Override
-	public String getUsername() {
-		return this.idLegal;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return this.enabled;
 	}
 
 }

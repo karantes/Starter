@@ -56,8 +56,8 @@
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
-<body class="horizontal-layout horizontal-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="hover"
-	data-menu="horizontal-menu" data-col="1-column">
+<body class="horizontal-layout horizontal-menu 1-column blank-page blank-page" data-open="hover" data-menu="horizontal-menu" data-col="1-column"
+	style="background-image : url('${pageContext.request.contextPath}/resources/stack-admin/app-assets/images/backgrounds/bg-2.jpg'); background-repeat: no-repeat; background-size : 100% 100%">
 	<!-- BEGIN: Content-->
 	<tiles:insertAttribute name="body" />
 	<!-- END: Content-->
