@@ -135,4 +135,24 @@ public class User {
 		this.roles = roles;
 	}
 
+	public Boolean hasFuncionalidade(String value) {
+		for (Role role : this.roles) {
+			for (Menu menu : role.getMenus()) {
+				for (Funcionalidade funcionalidade : menu.getFuncionalidades())
+					if (funcionalidade.getValue().equals(value))
+						return true;
+			}
+		}
+		return false;
+	}
+
+	public Boolean hasMenu(String value) {
+		for (Role role : this.roles) {
+			for (Menu menu : role.getMenus()) {
+				if (menu.getName().equals(value))
+					return true;
+			}
+		}
+		return false;
+	}
 }

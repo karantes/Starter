@@ -43,6 +43,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
+			<add-attribute value="/resources/js/admin/default.js" />
 		</put-list-attribute>
 	</definition>
 
@@ -55,6 +56,7 @@
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/icheck/icheck.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/icheck/custom.css" />
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/extensions/sweetalert2.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/forms/selects/select2.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="cssTheme" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/bootstrap.min.css" />
@@ -76,6 +78,7 @@
 			<add-attribute value="/resources/stack-admin/jquery-ui.js" />
 			<add-attribute value="/resources/stack-admin/jquery.maskMoney.min.js" />
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/extensions/sweetalert2.all.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/select/select2.full.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsPageVendors" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/ui/jquery.sticky.js" />
@@ -89,6 +92,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
+			<add-attribute value="/resources/js/admin/default.js" />
 		</put-list-attribute>
 	</definition>
 
@@ -121,6 +125,29 @@
 	<definition name="home" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
 		<put-attribute name="title" value="Home" />
+	</definition>
+
+	<definition name="funcionalidades" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/funcionalidades.jsp" />
+		<put-attribute name="title" value="Funcionalidades" />
+
+		<put-list-attribute name="cssVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="jsVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/datatables.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.html5.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="funcionalidade-register" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/funcionalidade-register.jsp" />
+		<put-attribute name="title" value="Cadastro de Funcionalidade" />
 	</definition>
 
 </tiles-definitions>
