@@ -17,8 +17,8 @@
 			<add-attribute value="/resources/stack-admin/app-assets/css/components.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="cssPage" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.css" />
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="cssCustom" inherit="true">
 			<add-attribute value="/resources/stack-admin/assets/css/style.css" />
@@ -38,8 +38,8 @@
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/icheck/icheck.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsTheme" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
@@ -65,8 +65,8 @@
 			<add-attribute value="/resources/stack-admin/app-assets/css/components.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="cssPage" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.css" />
-			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/menu/menu-types/horizontal-menu.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/core/colors/palette-gradient.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="cssCustom" inherit="true">
 			<add-attribute value="/resources/stack-admin/assets/css/style.css" />
@@ -87,8 +87,8 @@
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/forms/icheck/icheck.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsTheme" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app-menu.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/core/app.min.js" />
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
@@ -99,23 +99,32 @@
 	<definition name="error-400" extends="common-clean">
 		<put-attribute name="title" value="error-400" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-400.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
 	</definition>
 
 	<definition name="error-403" extends="common-clean">
 		<put-attribute name="title" value="error-403" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-403.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
 	</definition>
 
 	<definition name="error-404" extends="common-clean">
 		<put-attribute name="title" value="error-404" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-404.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
 	</definition>
 
 	<definition name="login" extends="common-clean">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/login.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/js/admin/login.js" />
@@ -148,6 +157,32 @@
 	<definition name="funcionalidade-register" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/funcionalidade-register.jsp" />
 		<put-attribute name="title" value="Cadastro de Funcionalidade" />
+	</definition>
+
+	<definition name="menus" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/menus.jsp" />
+		<put-attribute name="title" value="Menus" />
+
+		<put-list-attribute name="cssVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="jsVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/datatables.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.html5.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="menu-register" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/menu-register.jsp" />
+		<put-attribute name="title" value="Cadastro de Menu" />
+		<put-list-attribute name="jsPage" inherit="true">
+			<add-attribute value="/resources/js/admin/menu-register.js" />
+		</put-list-attribute>
 	</definition>
 
 </tiles-definitions>

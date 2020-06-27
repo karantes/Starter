@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.arantes.admin.entity.Funcionalidade;
+import br.arantes.admin.entity.Menu;
 import br.arantes.admin.service.FuncionalidadeService;
+import br.arantes.admin.service.MenuService;
 import br.arantes.admin.service.RoleService;
 
 @Controller
-public class FuncionalidadeController {
+public class MenuController {
 
 	@Autowired
 	private RoleService roleService;
@@ -26,8 +27,11 @@ public class FuncionalidadeController {
 	@Autowired
 	private FuncionalidadeService funcionalidadeService;
 
-	@RequestMapping(value = "/funcionalidades")
-	public String showFuncionalidades(Model model, Principal principal, HttpServletRequest request, Authentication authentication) {
+	@Autowired
+	private MenuService menuService;
+
+	@RequestMapping(value = "/menus")
+	public String showMenus(Model model, Principal principal, HttpServletRequest request, Authentication authentication) {
 		try {
 			if (principal == null)
 				return "redirect:/login.html?authenticate=false";
@@ -35,16 +39,16 @@ public class FuncionalidadeController {
 			}.getClass().getEnclosingMethod()))
 				return "redirect:/error-403.html";
 
-			model.addAttribute("funcionalidades", funcionalidadeService.findAll());
+			model.addAttribute("menus", menuService.findAll());
 
-			return "funcionalidades";
+			return "menus";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "error-404";
 		}
 	}
 
-	@RequestMapping(value = "/funcionalidade-register", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu-register", method = RequestMethod.GET)
 	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) {
 		try {
 			if (principal == null)
@@ -53,18 +57,18 @@ public class FuncionalidadeController {
 			}.getClass().getEnclosingMethod()))
 				return "redirect:/error-403.html";
 
-			model.addAttribute("funcionalidade", new Funcionalidade());
-			model.addAttribute("methods", RequestMethod.values());
+			model.addAttribute("menu", new Menu());
+			model.addAttribute("funcionalidades", funcionalidadeService.findAll());
 
-			return "funcionalidade-register";
+			return "menu-register";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "error-404";
 		}
 	}
 
-	@RequestMapping(value = "/funcionalidade-register", method = RequestMethod.POST)
-	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Funcionalidade funcionalidade) {
+	@RequestMapping(value = "/menu-register", method = RequestMethod.POST)
+	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Menu menu) {
 		try {
 			if (principal == null)
 				return "redirect:/login.html?authenticate=false";
@@ -72,16 +76,16 @@ public class FuncionalidadeController {
 			}.getClass().getEnclosingMethod()))
 				return "redirect:/error-403.html";
 
-			funcionalidadeService.save(funcionalidade);
+			menuService.save(menu);
 
-			return "redirect:/funcionalidades.html";
+			return "redirect:/menus.html";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "error-404";
 		}
 	}
 
-	@RequestMapping(value = "/funcionalidade-update/{id}")
+	@RequestMapping(value = "/menu-update/{id}")
 	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) {
 		try {
 			if (principal == null)
@@ -90,17 +94,17 @@ public class FuncionalidadeController {
 			}.getClass().getEnclosingMethod()))
 				return "redirect:/error-403.html";
 
-			model.addAttribute("funcionalidade", funcionalidadeService.findById(id));
-			model.addAttribute("methods", RequestMethod.values());
+			model.addAttribute("menu", menuService.findById(id));
+			model.addAttribute("funcionalidades", funcionalidadeService.findAll());
 
-			return "funcionalidade-register";
+			return "menu-register";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "error-404";
 		}
 	}
 
-	@RequestMapping(value = "/delete-funcionalidade/{id}")
+	@RequestMapping(value = "/delete-menu/{id}")
 	public String doDelete(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) {
 		try {
 			if (principal == null)
@@ -108,10 +112,10 @@ public class FuncionalidadeController {
 			if (!roleService.isAuthenticated(principal.getName(), new Object() {
 			}.getClass().getEnclosingMethod()))
 				return "redirect:/error-403.html";
-			
-			funcionalidadeService.deleteById(id);
-			
-			return "redirect:/funcionalidades.html";
+
+			menuService.deleteById(id);
+
+			return "redirect:/menus.html";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "error-404";

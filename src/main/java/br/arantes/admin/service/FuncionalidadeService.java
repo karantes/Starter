@@ -25,4 +25,8 @@ public class FuncionalidadeService {
 	public Funcionalidade findById(Integer id) {
 		return funcionalidadeRepository.findById(id).orElse(null);
 	}
+
+	public void deleteById(Integer id) {
+		funcionalidadeRepository.delete(this.findById(id));
+	}
 }

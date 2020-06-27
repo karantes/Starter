@@ -11,14 +11,17 @@
 				<li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i
 						class="feather icon-settings"></i><span>Admin</span></a>
 					<ul class="dropdown-menu">
-						<c:if test="${usuarioLogado.hasFuncionalidade('/users')}">
-							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/users.html"/>' data-toggle="dropdown">Usuarios</a></li>
+						<c:if test="${usuarioLogado.hasFuncionalidade('/funcionalidades')}">
+							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/funcionalidades.html"/>' data-toggle="dropdown">Funcionalidades</a></li>
+						</c:if>
+						<c:if test="${usuarioLogado.hasFuncionalidade('/menus')}">
+							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/menus.html"/>' data-toggle="dropdown">Menus</a></li>
 						</c:if>
 						<c:if test="${usuarioLogado.hasFuncionalidade('/roles')}">
 							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/roles.html"/>' data-toggle="dropdown">Permissões</a></li>
 						</c:if>
-						<c:if test="${usuarioLogado.hasFuncionalidade('/funcionalidades')}">
-							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/funcionalidades.html"/>' data-toggle="dropdown">Funcionalidades</a></li>
+						<c:if test="${usuarioLogado.hasFuncionalidade('/users')}">
+							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/users.html"/>' data-toggle="dropdown">Usuarios</a></li>
 						</c:if>
 					</ul></li>
 			</c:if>

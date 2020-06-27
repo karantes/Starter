@@ -122,6 +122,42 @@ public class InitDbService {
 		funcionalidadeUpdate.setValue("/funcionalidade-update/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeUpdate));
 
+		Funcionalidade funcionalidadeDelete = new Funcionalidade();
+		funcionalidadeDelete.setMethod(null);
+		funcionalidadeDelete.setName("APAGAR FUNCIONALIDADE");
+		funcionalidadeDelete.setValue("/delete-funcionalidade/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeDelete));
+
+		Funcionalidade menus = new Funcionalidade();
+		menus.setMethod(null);
+		menus.setName("MENUS");
+		menus.setValue("/menus");
+		listaFuncionalidades.add(funcionalidadeRepository.save(menus));
+
+		Funcionalidade menuShowRegister = new Funcionalidade();
+		menuShowRegister.setMethod(RequestMethod.GET);
+		menuShowRegister.setName("CADASTRAR NOVO MENU");
+		menuShowRegister.setValue("/menu-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(menuShowRegister));
+
+		Funcionalidade menuDoRegister = new Funcionalidade();
+		menuDoRegister.setMethod(RequestMethod.POST);
+		menuDoRegister.setName("SALVAR MENU");
+		menuDoRegister.setValue("/menu-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(menuDoRegister));
+
+		Funcionalidade menuUpdate = new Funcionalidade();
+		menuUpdate.setMethod(null);
+		menuUpdate.setName("ATUALIZAR MENU");
+		menuUpdate.setValue("/menu-update/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(menuUpdate));
+
+		Funcionalidade menuDelete = new Funcionalidade();
+		menuDelete.setMethod(null);
+		menuDelete.setName("APAGAR MENU");
+		menuDelete.setValue("/delete-menu/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(menuDelete));
+
 		return listaFuncionalidades;
 	}
 
