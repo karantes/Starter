@@ -27,6 +27,6 @@ public class FuncionalidadeService {
 	}
 
 	public void deleteById(Integer id) {
-		funcionalidadeRepository.delete(this.findById(id));
+		funcionalidadeRepository.deleteById(id);
 	}
 }

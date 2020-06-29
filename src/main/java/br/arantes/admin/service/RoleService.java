@@ -33,7 +33,7 @@ public class RoleService {
 		return roleRepository.findAll();
 	}
 
-	public Role findOne(int id) {
+	public Role findById(int id) {
 		return roleRepository.findById(id).get();
 	}
 
@@ -74,5 +74,9 @@ public class RoleService {
 			}
 
 		return isAuthenticated;
+	}
+
+	public void deleteById(Integer id) {
+		roleRepository.deleteById(id);
 	}
 }

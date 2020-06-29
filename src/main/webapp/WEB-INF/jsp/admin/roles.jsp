@@ -8,38 +8,61 @@
 
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#roles').DataTable();
-	});
-</script>
-
-<div class="page-header">
-	<div class="page-header-image" style="background-image: url(/resources/images/food-1932466_1920.jpg)"></div>
-	<div class="bd-content container">
-		<div class="card card-plain">
-			<div class="card-header">
-				<h2 class="card-titlet style=" style="text-align: left;">Roles</h2>
+<div class="app-content content">
+	<div class="content-overlay"></div>
+	<div class="content-wrapper">
+		<div class="content-header row">
+			<div class="content-header-left col-md-6 col-12 mb-2">
+				<h3 class="content-header-title mb-0">Permissões</h3>
+				<div class="row breadcrumbs-top">
+					<div class="breadcrumb-wrapper col-12">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href='<spring:url value="/home.html"/>'>Home</a></li>
+							<li class="breadcrumb-item">Permissões</li>
+						</ol>
+					</div>
+				</div>
 			</div>
-			<div class="card-content collapse show">
-				<div class="card-body card-dashboard">
-					<table id="roles" class="table table-striped table-bordered dt-responsive nowrap">
-						<thead>
-							<tr>
-
-								<th>ID</th>
-								<th>Nome</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${roles}" var="role">
+		</div>
+		<div class="content-body">
+			<div class="card">
+				<div class="card-header">
+					<h4 class="card-title">Lista de Permissões</h4>
+					<br> <a href='<spring:url value="/role-register.html"/>' style="width: auto;">
+						<button class="btn btn-primary">Nova Permissão</button>
+					</a> <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+					<div class="heading-elements">
+						<ul class="list-inline mb-0">
+							<li><a data-action="collapse"><i class="feather icon-minus"></i></a></li>
+							<li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+							<li><a data-action="expand"><i class="feather icon-maximize"></i></a></li>
+							<li><a data-action="close"><i class="feather icon-x"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="card-content collapse show">
+					<div class="card-body card-dashboard">
+						<table class="table table-striped table-bordered dataex-html5-export dataex-res-configuration" style="width: 100%">
+							<thead>
 								<tr>
-									<td>${role.id }</td>
-									<td>${role.name }</td>
+									<th>ID</th>
+									<th>Nome</th>
+									<th>Ações</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach items="${roles }" var="role">
+									<tr>
+										<td>${role.id }</td>
+										<td>${role.name }</td>
+										<td style="font-size: 150%;"><a href='<spring:url value="/role-update/${role.id }.html"/>'> <i class="fa fa-edit"
+												title="Editar"></i></a> &nbsp; <a href='<spring:url value="/role-menu/${role.id }.html"/>'> <i class="fa fa-trash" title="Apagar"></i>
+										</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

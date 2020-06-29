@@ -92,12 +92,7 @@ public class InitDbService {
 		home.setValue("/home");
 		listaFuncionalidades.add(funcionalidadeRepository.save(home));
 
-		Funcionalidade roles = new Funcionalidade();
-		roles.setMethod(null);
-		roles.setName("PERMISSÕES");
-		roles.setValue("/roles");
-		listaFuncionalidades.add(funcionalidadeRepository.save(roles));
-
+//		FUNCIONALIDADE
 		Funcionalidade funcionalidades = new Funcionalidade();
 		funcionalidades.setMethod(null);
 		funcionalidades.setName("FUNCIONALIDADES");
@@ -128,6 +123,7 @@ public class InitDbService {
 		funcionalidadeDelete.setValue("/delete-funcionalidade/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeDelete));
 
+//		MENU
 		Funcionalidade menus = new Funcionalidade();
 		menus.setMethod(null);
 		menus.setName("MENUS");
@@ -157,6 +153,37 @@ public class InitDbService {
 		menuDelete.setName("APAGAR MENU");
 		menuDelete.setValue("/delete-menu/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menuDelete));
+
+//		ROLE
+		Funcionalidade roles = new Funcionalidade();
+		roles.setMethod(null);
+		roles.setName("ROLES");
+		roles.setValue("/roles");
+		listaFuncionalidades.add(funcionalidadeRepository.save(roles));
+
+		Funcionalidade roleShowRegister = new Funcionalidade();
+		roleShowRegister.setMethod(RequestMethod.GET);
+		roleShowRegister.setName("CADASTRAR NOVA PERMISSÃO");
+		roleShowRegister.setValue("/role-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(roleShowRegister));
+
+		Funcionalidade roleDoRegister = new Funcionalidade();
+		roleDoRegister.setMethod(RequestMethod.POST);
+		roleDoRegister.setName("SALVAR PERMISSÃO");
+		roleDoRegister.setValue("/role-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(roleDoRegister));
+
+		Funcionalidade roleUpdate = new Funcionalidade();
+		roleUpdate.setMethod(null);
+		roleUpdate.setName("ATUALIZAR PERMISSÃO");
+		roleUpdate.setValue("/role-update/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(roleUpdate));
+
+		Funcionalidade roleDelete = new Funcionalidade();
+		roleDelete.setMethod(null);
+		roleDelete.setName("APAGAR PERMISSÃO");
+		roleDelete.setValue("/delete-role/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(roleDelete));
 
 		return listaFuncionalidades;
 	}

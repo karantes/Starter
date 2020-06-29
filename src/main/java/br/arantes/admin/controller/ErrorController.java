@@ -1,25 +1,20 @@
 package br.arantes.admin.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpServletRequest;
 
-@Controller
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
 public class ErrorController {
 
-	@RequestMapping("/error-400")
-	public String error400(Model model) {
-		return "error-400";
-	}
+	@ExceptionHandler(Exception.class)
+	public String handleException(Exception ex, HttpServletRequest httpRequest, Model model) {
 
-	@RequestMapping("/error-403")
-	public String error403(Model model) {
-		return "error-403";
-	}
-
-	@RequestMapping("/error-404")
-	public String error404(Model model) {
-		return "error-404";
+		model.addAttribute("errorMsg", ex.getMessage());
+		model.addAttribute("url", httpRequest.getRequestURL());
+		return "page_error";
 	}
 
 }

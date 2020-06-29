@@ -27,6 +27,6 @@ public class MenuService {
 	}
 
 	public void deleteById(Integer id) {
-		menuRepository.delete(this.findById(id));
+		menuRepository.deleteById(id);
 	}
 }

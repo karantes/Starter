@@ -31,94 +31,69 @@ public class MenuController {
 	private MenuService menuService;
 
 	@RequestMapping(value = "/menus")
-	public String showMenus(Model model, Principal principal, HttpServletRequest request, Authentication authentication) {
-		try {
-			if (principal == null)
-				return "redirect:/login.html?authenticate=false";
-			if (!roleService.isAuthenticated(principal.getName(), new Object() {
-			}.getClass().getEnclosingMethod()))
-				return "redirect:/error-403.html";
+	public String showMenus(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
+		if (principal == null)
+			return "redirect:/login.html?authenticate=false";
+		if (!roleService.isAuthenticated(principal.getName(), new Object() {
+		}.getClass().getEnclosingMethod()))
+			throw new Exception("Usuario não Autorizado");
 
-			model.addAttribute("menus", menuService.findAll());
+		model.addAttribute("menus", menuService.findAll());
 
-			return "menus";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error-404";
-		}
+		return "menus";
 	}
 
 	@RequestMapping(value = "/menu-register", method = RequestMethod.GET)
-	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) {
-		try {
-			if (principal == null)
-				return "redirect:/login.html?authenticate=false";
-			if (!roleService.isAuthenticated(principal.getName(), new Object() {
-			}.getClass().getEnclosingMethod()))
-				return "redirect:/error-403.html";
+	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
+		if (principal == null)
+			return "redirect:/login.html?authenticate=false";
+		if (!roleService.isAuthenticated(principal.getName(), new Object() {
+		}.getClass().getEnclosingMethod()))
+			throw new Exception("Usuario não Autorizado");
 
-			model.addAttribute("menu", new Menu());
-			model.addAttribute("funcionalidades", funcionalidadeService.findAll());
+		model.addAttribute("menu", new Menu());
+		model.addAttribute("funcionalidades", funcionalidadeService.findAll());
 
-			return "menu-register";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error-404";
-		}
+		return "menu-register";
 	}
 
 	@RequestMapping(value = "/menu-register", method = RequestMethod.POST)
-	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Menu menu) {
-		try {
-			if (principal == null)
-				return "redirect:/login.html?authenticate=false";
-			if (!roleService.isAuthenticated(principal.getName(), new Object() {
-			}.getClass().getEnclosingMethod()))
-				return "redirect:/error-403.html";
+	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Menu menu) throws Exception {
+		if (principal == null)
+			return "redirect:/login.html?authenticate=false";
+		if (!roleService.isAuthenticated(principal.getName(), new Object() {
+		}.getClass().getEnclosingMethod()))
+			throw new Exception("Usuario não Autorizado");
 
-			menuService.save(menu);
+		menuService.save(menu);
 
-			return "redirect:/menus.html";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error-404";
-		}
+		return "redirect:/menus.html";
 	}
 
 	@RequestMapping(value = "/menu-update/{id}")
-	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) {
-		try {
-			if (principal == null)
-				return "redirect:/login.html?authenticate=false";
-			if (!roleService.isAuthenticated(principal.getName(), new Object() {
-			}.getClass().getEnclosingMethod()))
-				return "redirect:/error-403.html";
+	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
+		if (principal == null)
+			return "redirect:/login.html?authenticate=false";
+		if (!roleService.isAuthenticated(principal.getName(), new Object() {
+		}.getClass().getEnclosingMethod()))
+			throw new Exception("Usuario não Autorizado");
 
-			model.addAttribute("menu", menuService.findById(id));
-			model.addAttribute("funcionalidades", funcionalidadeService.findAll());
+		model.addAttribute("menu", menuService.findById(id));
+		model.addAttribute("funcionalidades", funcionalidadeService.findAll());
 
-			return "menu-register";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error-404";
-		}
+		return "menu-register";
 	}
 
 	@RequestMapping(value = "/delete-menu/{id}")
-	public String doDelete(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) {
-		try {
-			if (principal == null)
-				return "redirect:/login.html?authenticate=false";
-			if (!roleService.isAuthenticated(principal.getName(), new Object() {
-			}.getClass().getEnclosingMethod()))
-				return "redirect:/error-403.html";
+	public String doDelete(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
+		if (principal == null)
+			return "redirect:/login.html?authenticate=false";
+		if (!roleService.isAuthenticated(principal.getName(), new Object() {
+		}.getClass().getEnclosingMethod()))
+			throw new Exception("Usuario não Autorizado");
 
-			menuService.deleteById(id);
+		menuService.deleteById(id);
 
-			return "redirect:/menus.html";
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "error-404";
-		}
+		return "redirect:/menus.html";
 	}
 }

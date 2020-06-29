@@ -7,18 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.springframework.security.core.GrantedAuthority;
 
 @Entity(name = "ADM_ROLES")
 @Table(name = "ADM_ROLES")
-public class Role implements GrantedAuthority {
-
-	private static final long serialVersionUID = 666901998313496392L;
+public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +24,7 @@ public class Role implements GrantedAuthority {
 	@Column(name = "tx_name")
 	private String name;
 
-	@ManyToMany
+	@OneToMany(orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Menu> menus;
 
@@ -55,13 +52,21 @@ public class Role implements GrantedAuthority {
 		this.menus = menus;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Boolean hasFuncionalidade(String value) {
+		for (Menu menu : this.getMenus()) {
+			for (Funcionalidade funcionalidade : menu.getFuncionalidades())
+				if (funcionalidade.getValue().equals(value))
+					return true;
+		}
+		return false;
 	}
 
-	@Override
-	public String getAuthority() {
-		return name;
+	public Boolean hasMenu(String value) {
+		for (Menu menu : this.getMenus()) {
+			if (menu.getName().equals(value))
+				return true;
+		}
+		return false;
 	}
 
 }

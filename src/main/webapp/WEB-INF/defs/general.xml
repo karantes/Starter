@@ -96,25 +96,17 @@
 		</put-list-attribute>
 	</definition>
 
-	<definition name="error-400" extends="common-clean">
-		<put-attribute name="title" value="error-400" />
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-400.jsp" />
+	<definition name="page_error" extends="common-clean">
+		<put-attribute name="title" value="Erro" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/page_error.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
 	</definition>
 
-	<definition name="error-403" extends="common-clean">
-		<put-attribute name="title" value="error-403" />
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-403.jsp" />
-		<put-list-attribute name="cssPage" inherit="true">
-			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
-		</put-list-attribute>
-	</definition>
-
-	<definition name="error-404" extends="common-clean">
-		<put-attribute name="title" value="error-404" />
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-404.jsp" />
+	<definition name="error-500" extends="common-clean">
+		<put-attribute name="title" value="error-500" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-500.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
@@ -183,6 +175,55 @@
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/js/admin/menu-register.js" />
 		</put-list-attribute>
+	</definition>
+
+	<definition name="roles" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/roles.jsp" />
+		<put-attribute name="title" value="Permissões" />
+
+		<put-list-attribute name="cssVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="jsVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/datatables.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.html5.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="role-register" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/role-register.jsp" />
+		<put-attribute name="title" value="Cadastro de Permissão" />
+		<put-list-attribute name="jsPage" inherit="true">
+			<add-attribute value="/resources/js/admin/role-register.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="users" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/users.jsp" />
+		<put-attribute name="title" value="Usuarios" />
+
+		<put-list-attribute name="cssVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" />
+		</put-list-attribute>
+
+		<put-list-attribute name="jsVendors" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/datatables.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/vendors/js/tables/buttons.html5.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="user-register" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-register.jsp" />
+		<put-attribute name="title" value="Cadastro de Usuarios" />
 	</definition>
 
 </tiles-definitions>

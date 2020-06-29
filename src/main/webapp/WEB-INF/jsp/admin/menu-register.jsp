@@ -67,8 +67,8 @@
 								</c:forEach>
 
 								<div class="col-md-12">
-									<button class="btn btn-block block-element btn-primary" style="width: auto;">${menu.id == null ?
-								'Cadastrar' : 'Atualizar' }</button>
+									<br>
+									<button class="btn btn-block block-element btn-primary" style="width: auto;">${menu.id == null ? 'Cadastrar' : 'Atualizar' }</button>
 								</div>
 						</form:form>
 					</div>
