@@ -16,4 +16,5 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
 
 	@Query(value = "select u.roles from ADM_USERS u where u = ?1")
 	List<Role> findByUser(User user);
+
 }

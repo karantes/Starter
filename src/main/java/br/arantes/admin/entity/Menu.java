@@ -25,7 +25,7 @@ public class Menu {
 	@Column(name = "tx_name")
 	private String name;
 
-	@OneToMany(orphanRemoval = true)
+	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Funcionalidade> funcionalidades;
 

@@ -88,6 +88,7 @@ public class InitDbService {
 
 		Funcionalidade home = new Funcionalidade();
 		home.setMethod(null);
+		home.setAtivo(true);
 		home.setName("HOME");
 		home.setValue("/home");
 		listaFuncionalidades.add(funcionalidadeRepository.save(home));
@@ -95,30 +96,35 @@ public class InitDbService {
 //		FUNCIONALIDADE
 		Funcionalidade funcionalidades = new Funcionalidade();
 		funcionalidades.setMethod(null);
+		funcionalidades.setAtivo(true);
 		funcionalidades.setName("FUNCIONALIDADES");
 		funcionalidades.setValue("/funcionalidades");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidades));
 
 		Funcionalidade funcionalidadeShowRegister = new Funcionalidade();
 		funcionalidadeShowRegister.setMethod(RequestMethod.GET);
+		funcionalidadeShowRegister.setAtivo(true);
 		funcionalidadeShowRegister.setName("CADASTRAR NOVA FUNCIONALIDADE");
 		funcionalidadeShowRegister.setValue("/funcionalidade-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeShowRegister));
 
 		Funcionalidade funcionalidadeDoRegister = new Funcionalidade();
 		funcionalidadeDoRegister.setMethod(RequestMethod.POST);
+		funcionalidadeDoRegister.setAtivo(true);
 		funcionalidadeDoRegister.setName("SALVAR FUNCIONALIDADE");
 		funcionalidadeDoRegister.setValue("/funcionalidade-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeDoRegister));
 
 		Funcionalidade funcionalidadeUpdate = new Funcionalidade();
 		funcionalidadeUpdate.setMethod(null);
+		funcionalidadeUpdate.setAtivo(true);
 		funcionalidadeUpdate.setName("ATUALIZAR FUNCIONALIDADE");
 		funcionalidadeUpdate.setValue("/funcionalidade-update/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeUpdate));
 
 		Funcionalidade funcionalidadeDelete = new Funcionalidade();
 		funcionalidadeDelete.setMethod(null);
+		funcionalidadeDelete.setAtivo(true);
 		funcionalidadeDelete.setName("APAGAR FUNCIONALIDADE");
 		funcionalidadeDelete.setValue("/delete-funcionalidade/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(funcionalidadeDelete));
@@ -126,30 +132,35 @@ public class InitDbService {
 //		MENU
 		Funcionalidade menus = new Funcionalidade();
 		menus.setMethod(null);
+		menus.setAtivo(true);
 		menus.setName("MENUS");
 		menus.setValue("/menus");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menus));
 
 		Funcionalidade menuShowRegister = new Funcionalidade();
 		menuShowRegister.setMethod(RequestMethod.GET);
+		menuShowRegister.setAtivo(true);
 		menuShowRegister.setName("CADASTRAR NOVO MENU");
 		menuShowRegister.setValue("/menu-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menuShowRegister));
 
 		Funcionalidade menuDoRegister = new Funcionalidade();
 		menuDoRegister.setMethod(RequestMethod.POST);
+		menuDoRegister.setAtivo(true);
 		menuDoRegister.setName("SALVAR MENU");
 		menuDoRegister.setValue("/menu-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menuDoRegister));
 
 		Funcionalidade menuUpdate = new Funcionalidade();
 		menuUpdate.setMethod(null);
+		menuUpdate.setAtivo(true);
 		menuUpdate.setName("ATUALIZAR MENU");
 		menuUpdate.setValue("/menu-update/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menuUpdate));
 
 		Funcionalidade menuDelete = new Funcionalidade();
 		menuDelete.setMethod(null);
+		menuDelete.setAtivo(true);
 		menuDelete.setName("APAGAR MENU");
 		menuDelete.setValue("/delete-menu/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(menuDelete));
@@ -157,30 +168,35 @@ public class InitDbService {
 //		ROLE
 		Funcionalidade roles = new Funcionalidade();
 		roles.setMethod(null);
+		roles.setAtivo(true);
 		roles.setName("ROLES");
 		roles.setValue("/roles");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roles));
 
 		Funcionalidade roleShowRegister = new Funcionalidade();
 		roleShowRegister.setMethod(RequestMethod.GET);
+		roleShowRegister.setAtivo(true);
 		roleShowRegister.setName("CADASTRAR NOVA PERMISSÃO");
 		roleShowRegister.setValue("/role-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roleShowRegister));
 
 		Funcionalidade roleDoRegister = new Funcionalidade();
 		roleDoRegister.setMethod(RequestMethod.POST);
+		roleDoRegister.setAtivo(true);
 		roleDoRegister.setName("SALVAR PERMISSÃO");
 		roleDoRegister.setValue("/role-register");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roleDoRegister));
 
 		Funcionalidade roleUpdate = new Funcionalidade();
 		roleUpdate.setMethod(null);
+		roleUpdate.setAtivo(true);
 		roleUpdate.setName("ATUALIZAR PERMISSÃO");
 		roleUpdate.setValue("/role-update/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roleUpdate));
 
 		Funcionalidade roleDelete = new Funcionalidade();
 		roleDelete.setMethod(null);
+		roleDelete.setAtivo(true);
 		roleDelete.setName("APAGAR PERMISSÃO");
 		roleDelete.setValue("/delete-role/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roleDelete));

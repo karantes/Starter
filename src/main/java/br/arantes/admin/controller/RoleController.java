@@ -62,8 +62,6 @@ public class RoleController {
 			throw new Exception("Usuario não Autorizado");
 
 		roleService.save(role);
-		
-		roleService.findAll();
 
 		return "redirect:/roles.html";
 	}

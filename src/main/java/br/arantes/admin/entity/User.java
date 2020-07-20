@@ -139,7 +139,7 @@ public class User {
 		for (Role role : this.roles) {
 			for (Menu menu : role.getMenus()) {
 				for (Funcionalidade funcionalidade : menu.getFuncionalidades())
-					if (funcionalidade.getValue().equals(value))
+					if (funcionalidade.getValue().equals(value) && funcionalidade.getAtivo())
 						return true;
 			}
 		}

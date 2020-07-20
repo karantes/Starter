@@ -24,7 +24,7 @@ public class Role {
 	@Column(name = "tx_name")
 	private String name;
 
-	@OneToMany(orphanRemoval = true)
+	@OneToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Menu> menus;
 

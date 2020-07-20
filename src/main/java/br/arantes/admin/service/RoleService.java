@@ -38,6 +38,9 @@ public class RoleService {
 	}
 
 	public void save(Role role) {
+		role.getMenus().forEach(menu -> {
+			funcionalidadeRepository.saveAll(menu.getFuncionalidades());
+		});
 		roleRepository.save(role);
 	}
 
@@ -66,7 +69,7 @@ public class RoleService {
 				for (Role role : roles)
 					for (Menu menu : role.getMenus())
 						for (Funcionalidade f : menu.getFuncionalidades())
-							if (f.equals(funcionalidade)) {
+							if (f.equals(funcionalidade) && f.getAtivo()) {
 								isAuthenticated = true;
 								break;
 							}
@@ -79,4 +82,5 @@ public class RoleService {
 	public void deleteById(Integer id) {
 		roleRepository.deleteById(id);
 	}
+
 }

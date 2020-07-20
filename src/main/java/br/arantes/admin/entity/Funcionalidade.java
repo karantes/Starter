@@ -27,6 +27,9 @@ public class Funcionalidade {
 	@Column(name = "tx_value")
 	private String value;
 
+	@Column(name = "bl_ativo")
+	private Boolean ativo;
+
 	@Column(name = "tx_method")
 	@Enumerated(EnumType.STRING)
 	private RequestMethod method;
@@ -63,24 +66,29 @@ public class Funcionalidade {
 		this.method = method;
 	}
 
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, method, name, value);
+		return Objects.hash(ativo, id, method, name, value);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		Funcionalidade other = (Funcionalidade) obj;
-		return Objects.equals(id, other.id) && method == other.method && Objects.equals(name, other.name) && Objects.equals(value, other.value);
+		return Objects.equals(ativo, other.ativo) && Objects.equals(id, other.id) && method == other.method && Objects.equals(name, other.name) && Objects.equals(value, other.value);
 	}
 
 }
