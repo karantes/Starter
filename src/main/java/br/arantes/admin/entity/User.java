@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
@@ -50,7 +50,7 @@ public class User {
 	@Column(name = "bl_first_time_login")
 	private Boolean firstTimeLogin;
 
-	@OneToMany
+	@ManyToMany
 	@JoinTable
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;

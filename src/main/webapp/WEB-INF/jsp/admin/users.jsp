@@ -13,12 +13,12 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-12 mb-2">
-				<h3 class="content-header-title mb-0">Permissões</h3>
+				<h3 class="content-header-title mb-0">Usuários</h3>
 				<div class="row breadcrumbs-top">
 					<div class="breadcrumb-wrapper col-12">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href='<spring:url value="/home.html"/>'>Home</a></li>
-							<li class="breadcrumb-item">Permissões</li>
+							<li class="breadcrumb-item">Usuários</li>
 						</ol>
 					</div>
 				</div>
@@ -27,9 +27,9 @@
 		<div class="content-body">
 			<div class="card">
 				<div class="card-header">
-					<h4 class="card-title">Lista de Permissões</h4>
-					<br> <a href='<spring:url value="/role-register.html"/>' style="width: auto;">
-						<button class="btn btn-primary">Nova Permissão</button>
+					<h4 class="card-title">Lista de Usuários</h4>
+					<br> <a href='<spring:url value="/user-register.html"/>' style="width: auto;">
+						<button class="btn btn-primary">Novo Usuário</button>
 					</a> <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
 					<div class="heading-elements">
 						<ul class="list-inline mb-0">
@@ -47,17 +47,22 @@
 								<tr>
 									<th>ID</th>
 									<th>Nome</th>
+									<th>CPF/CNPJ</th>
+									<th>Email</th>
+									<th>Permissões</th>
 									<th>Ações</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${roles }" var="role">
+								<c:forEach items="${users }" var="user">
 									<tr>
-										<td>${role.id }</td>
-										<td>${role.name }</td>
-										<td style="font-size: 150%;"><a href='<spring:url value="/role-update/${role.id }.html"/>'> <i class="fa fa-edit"
-												title="Editar"></i></a> &nbsp; <a href='<spring:url value="/delete-role/${role.id }.html"/>'> <i class="fa fa-trash" title="Apagar"></i>
-										</a></td>
+										<td>${user.id }</td>
+										<td>${user.name }</td>
+										<td>${user.idLegal }</td>
+										<td>${user.email }</td>
+										<td>${user.roles }</td>
+										<td style="font-size: 150%;"><a href='<spring:url value="/user-update/${user.id }.html"/>'> <i class="fa fa-edit"
+												title="Editar"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

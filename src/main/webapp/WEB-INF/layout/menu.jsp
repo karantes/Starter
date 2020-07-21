@@ -25,15 +25,6 @@
 						</c:if>
 					</ul></li>
 			</c:if>
-			<c:if test="${usuarioLogado.hasMenu('TESTE')}">
-				<li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i
-						class="feather icon-settings"></i><span>TESTE</span></a>
-					<ul class="dropdown-menu">
-						<c:if test="${usuarioLogado.hasFuncionalidade('/teste')}">
-							<li data-menu=""><a class="dropdown-item" href='<spring:url value="/teste.html"/>' data-toggle="dropdown">Teste</a></li>
-						</c:if>
-					</ul></li>
-			</c:if>
 		</ul>
 	</div>
 </div>

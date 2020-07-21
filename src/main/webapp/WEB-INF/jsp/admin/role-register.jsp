@@ -41,7 +41,6 @@
 									</div>
 								</div>
 
-								<c:set value="0" var="i" />
 								<c:forEach items="${menus }" var="menu">
 									<div class="col-md-12">
 										<br>
@@ -53,22 +52,22 @@
 									</div>
 									<div class="col-md-12">
 										<br>
+										<button class="btn btn-secondary btn-md round" type="button" onclick="checkAll('${menu.name }')" title="Marcar Todas">
+											<i class="fa fa-check-square-o"></i>
+										</button>
+										<button class="btn btn-secondary btn-md round" type="button" onclick="uncheckAll('${menu.name }')" title="Desmarcar Todas">
+											<i class="fa fa-square-o"></i>
+										</button>
+										<br> <br>
 									</div>
-									<c:set value="0" var="j" />
 									<c:forEach items="${menu.funcionalidades }" var="funcionalidade">
 										<div class="col-md-4">
 											<fieldset>
-												<form:hidden path="menus[${i}].funcionalidades[${j }].id" />
-												<form:hidden path="menus[${i}].funcionalidades[${j }].name" />
-												<form:hidden path="menus[${i}].funcionalidades[${j }].value" />
-												<form:hidden path="menus[${i}].funcionalidades[${j }].method" />
-												<form:checkbox path="menus[${i}].funcionalidades[${j }].ativo" value="${funcionalidade.ativo }"
-													onclick="$(this).val($(this).prop('checked'))" chequed="${funcionalidade.ativo }" />${funcionalidade.name } 
+												<input type="checkbox" class="${menu.name }" id="funcionalidade${menu.name }Id" name="funcionalidade${menu.name }Id"
+													value="${funcionalidade.id }" ${role.hasFuncionalidade(funcionalidade.value) ? 'checked="checked"' : '' } /> ${funcionalidade.name }
 											</fieldset>
 										</div>
-										<c:set value="${j + 1 }" var="j" />
 									</c:forEach>
-									<c:set value="${i + 1 }" var="i" />
 								</c:forEach>
 
 								<div class="col-md-12">

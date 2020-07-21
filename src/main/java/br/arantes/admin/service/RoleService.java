@@ -83,4 +83,8 @@ public class RoleService {
 		roleRepository.deleteById(id);
 	}
 
+	public List<Role> findByIdIn(List<Integer> idRoles) {
+		return roleRepository.findAllById(idRoles);
+	}
+
 }

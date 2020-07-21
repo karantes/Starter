@@ -205,7 +205,7 @@
 
 	<definition name="users" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/users.jsp" />
-		<put-attribute name="title" value="Usuarios" />
+		<put-attribute name="title" value="Usuários" />
 
 		<put-list-attribute name="cssVendors" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/vendors/css/tables/datatable/datatables.min.css" />
@@ -223,7 +223,7 @@
 
 	<definition name="user-register" extends="common">
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-register.jsp" />
-		<put-attribute name="title" value="Cadastro de Usuarios" />
+		<put-attribute name="title" value="Cadastro de Usuários" />
 	</definition>
 
 </tiles-definitions>

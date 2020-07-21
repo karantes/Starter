@@ -201,6 +201,35 @@ public class InitDbService {
 		roleDelete.setValue("/delete-role/{id}");
 		listaFuncionalidades.add(funcionalidadeRepository.save(roleDelete));
 
+//		USER
+		Funcionalidade users = new Funcionalidade();
+		users.setMethod(null);
+		users.setAtivo(true);
+		users.setName("USUÁRIOS");
+		users.setValue("/users");
+		listaFuncionalidades.add(funcionalidadeRepository.save(users));
+
+		Funcionalidade userShowRegister = new Funcionalidade();
+		userShowRegister.setMethod(RequestMethod.GET);
+		userShowRegister.setAtivo(true);
+		userShowRegister.setName("CADASTRAR NOVO USUÁRIO");
+		userShowRegister.setValue("/user-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(userShowRegister));
+
+		Funcionalidade userDoRegister = new Funcionalidade();
+		userDoRegister.setMethod(RequestMethod.POST);
+		userDoRegister.setAtivo(true);
+		userDoRegister.setName("SALVAR USUÁRIO");
+		userDoRegister.setValue("/user-register");
+		listaFuncionalidades.add(funcionalidadeRepository.save(userDoRegister));
+
+		Funcionalidade userUpdate = new Funcionalidade();
+		userUpdate.setMethod(null);
+		userUpdate.setAtivo(true);
+		userUpdate.setName("ATUALIZAR USUÁRIO");
+		userUpdate.setValue("/user-update/{id}");
+		listaFuncionalidades.add(funcionalidadeRepository.save(userUpdate));
+
 		return listaFuncionalidades;
 	}
 
