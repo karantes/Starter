@@ -62,7 +62,7 @@ public class InitDbService {
 		kaique.setEnabled(true);
 		kaique.setFirstTimeLogin(true);
 		kaique.setPassword(encoder.encode("1234"));
-		kaique.setRoles(Arrays.asList(roleRepository.save(adminRole)));
+		kaique.setRoles(Arrays.asList(adminRole));
 
 		userRepository.save(kaique);
 
@@ -72,7 +72,14 @@ public class InitDbService {
 		Role adminRole;
 		adminRole = new Role();
 		adminRole.setName("ROLE_ADMIN");
-		adminRole.setMenus(Arrays.asList(menuRepository.save(menuAdmin)));
+		adminRole.setMenus(Arrays.asList(menuAdmin));
+		roleRepository.save(adminRole);
+
+		Role userRole;
+		userRole = new Role();
+		userRole.setName("ROLE_USER");
+		roleRepository.save(userRole);
+
 		return adminRole;
 	}
 
@@ -80,7 +87,7 @@ public class InitDbService {
 		Menu menuAdmin = new Menu();
 		menuAdmin.setName("ADMIN");
 		menuAdmin.setFuncionalidades(funcionalidades);
-		return menuAdmin;
+		return menuRepository.save(menuAdmin);
 	}
 
 	private List<Funcionalidade> initFuncionalidades() {

@@ -74,7 +74,7 @@
 								<span>Novo Aqui ?</span>
 							</p>
 							<div class="card-body">
-								<a href='<spring:url value="/user-register.html"/>' class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
+								<a href='<spring:url value="/login-register.html"/>' class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
 									Registrar</a>
 							</div>
 						</div>

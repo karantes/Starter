@@ -226,4 +226,12 @@
 		<put-attribute name="title" value="Cadastro de Usuários" />
 	</definition>
 
+	<definition name="login-register" extends="common">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/login-register.jsp" />
+		<put-attribute name="title" value="Cadastro de Usuários" />
+		<put-list-attribute name="jsPage" inherit="true">
+			<add-attribute value="/resources/js/admin/user-register.js" />
+		</put-list-attribute>
+	</definition>
+
 </tiles-definitions>

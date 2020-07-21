@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import br.arantes.admin.entity.User;
 import br.arantes.admin.service.RoleService;
@@ -105,6 +108,17 @@ public class UserController {
 		model.addAttribute("roles", roleService.findAll());
 
 		return "user-register";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/ajax/busca-usuario", method = RequestMethod.POST)
+	public String findUsers(Principal principal, @RequestParam(required = false) String idLegal, @RequestParam(required = false) String email, HttpServletRequest request) {
+		User user = null;
+		if (idLegal != null)
+			user = userService.findByIdLegal(idLegal);
+		else if (email != null)
+			user = userService.findByEmail(email);
+		return new Gson().toJson(user);
 	}
 
 }

@@ -35,4 +35,8 @@ public class UserService {
 		return userRepository.findByIdLegal(cpf);
 	}
 
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+
 }
