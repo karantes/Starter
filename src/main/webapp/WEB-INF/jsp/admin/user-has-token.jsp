@@ -5,27 +5,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
-<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						var password = document.getElementById("password"), confirm_password = document
-								.getElementById("confPassword");
+<script>
+	window.onload = function(e) {
+		<c:if test="${param.tokenWrong eq true}">
+		alertaTokenIncorreto();
+		</c:if>
 
-						function validatePassword() {
-							if (password.value != confirm_password.value) {
-								confirm_password
-										.setCustomValidity("Senhas diferentes!");
-							} else {
-								confirm_password.setCustomValidity('');
-							}
-						}
-
-						password.onchange = validatePassword;
-						confirm_password.onkeyup = validatePassword;
-					});
+	}
 </script>
-
 
 <div class="app-content content">
 	<div class="content-overlay"></div>
@@ -47,7 +34,7 @@
 								<span>Recuperação de senha</span>
 							</p>
 							<div class="card-body">
-								<form class="form-horizontal" action='<spring:url value="/user-has-token.html"/>' method="post">
+								<form class="form-horizontal" action='<spring:url value="/user-has-token.html"/>' method="post" id="formRecovery">
 									<fieldset class="form-group position-relative has-icon-left">
 										<input type="number" step="1" class="form-control" id="idLegal" name="idLegal" value="${idLegal }" placeholder="CPF/CNPJ"
 											required="required">

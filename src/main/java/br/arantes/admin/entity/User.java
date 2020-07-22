@@ -58,9 +58,6 @@ public class User {
 	@Column(name = "tx_token")
 	private String token;
 
-	@Column(name = "dt_limite_token")
-	private LocalDateTime dtLimiteToken;
-
 	public Integer getId() {
 		return id;
 	}
@@ -147,14 +144,6 @@ public class User {
 
 	public void setToken(String token) {
 		this.token = token;
-	}
-
-	public LocalDateTime getDtLimiteToken() {
-		return dtLimiteToken;
-	}
-
-	public void setDtLimiteToken(LocalDateTime dtLimiteToken) {
-		this.dtLimiteToken = dtLimiteToken;
 	}
 
 	public Boolean hasFuncionalidade(String value) {

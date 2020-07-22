@@ -12,7 +12,7 @@ function showPassword() {
 }
 
 function alertaUsuarioIncorreto() {
-	Swal.fire("Atenção!", "Usuario ou senha incorretos!", "warning");
+	Swal.fire("Atenção!", "Usuário ou senha incorretos!", "warning");
 }
 
 function alertaSenhaAlterada() {
@@ -21,5 +21,5 @@ function alertaSenhaAlterada() {
 
 function alertaFacaLogin() {
 	Swal.fire("Atenção!", "Você precisa estar logado para acessar o sistema!",
-			"error");
+		"error");
 }

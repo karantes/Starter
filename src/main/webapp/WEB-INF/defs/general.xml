@@ -129,6 +129,9 @@
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
+		<put-list-attribute name="jsPage" inherit="true">
+			<add-attribute value="/resources/js/admin/user-has-token.js" />
+		</put-list-attribute>
 	</definition>
 
 	<definition name="user-password-recovery" extends="common-clean">
@@ -136,9 +139,6 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-password-recovery.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
-		</put-list-attribute>
-		<put-list-attribute name="jsPage" inherit="true">
-			<add-attribute value="/resources/js/admin/user-password-recovery.js" />
 		</put-list-attribute>
 	</definition>
 
