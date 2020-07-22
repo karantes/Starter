@@ -17,6 +17,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import br.arantes.admin.entity.User;
+
 public class Mail {
 
 	private final String username = "sup.start.project@gmail.com";
@@ -29,19 +31,53 @@ public class Mail {
 
 	private String port = "587";
 
-	public void sendMailPasswordRecovery(String to, String randomToken) {
+	public void sendMailPasswordRecovery(User user, String token) {
 
 		Properties props = getProperties(this.getHost(), this.getPort());
 		Session session = getSession(props, this.getUsername(), this.getPassword());
-
 		String subject = "Recuperação de senha.";
-		String bodyMessage = "Esta é uma mensagem automática. Não responda a este e-mail. "
-				+ "\n\nCaso não solicitou redefinição de senha, favor desconsiderar esta mensagem." + "\n\n" + "Token: "
-				+ randomToken + "\n\n" + "Insira o token na página em que solicitou a recuperação de senha." + "\n\n\n";
+		String bodyMessage = ""
+				+ "<table align=\"center\" style=\"width: 538px;\">                                                                                                                                                                        "
+				+ "	<tbody>                                                                                                                                                                                                                "
+				+ "		<tr>                                                                                                                                                                                                               "
+				+ "			<td bgcolor=\"#313b4f\">                                                                                                                                                                                       "
+				+ "				<table width=\"470\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-left: 5px; padding-right: 5px; padding-bottom: 10px\">                                              "
+				+ "					<tbody>                                                                                                                                                                                                "
+				+ "						<tr bgcolor=\"#313b4f\">                                                                                                                                                                           "
+				+ "							<td style=\"padding-top: 32px\">                                                                                                                                                               "
+				+ "								<span style=\"font-size: 24px; color: rgb(102, 192, 244); font-family: Arial, Helvetica, sans-serif, serif, EmojiFont; font-weight: bold; \">Olá, " + user.getName()
+				+ "</span><br>                                                                                                                                                                                                             "
+				+ "							</td>                                                                                                                                                                                          "
+				+ "						</tr>                                                                                                                                                                                              "
+				+ "						<tr>                                                                                                                                                                                               "
+				+ "							<td style=\"padding-top: 12px; font-size: 17px; color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold\">                                                                  "
+				+ "								Aqui está o código que você precisa para mudar sua senha:                                                                                                                                  "
+				+ "							</td>                                                                                                                                                                                          "
+				+ "						</tr>                                                                                                                                                                                              "
+				+ "						<tr>                                                                                                                                                                                               "
+				+ "							<td style=\"padding-top: 24px; padding-bottom: 24px\">                                                                                                                                         "
+				+ "								<div>                                                                                                                                                                                      "
+				+ "									<span style=\"font-size: 24px; color: rgb(102, 192, 244); font-family: Arial, Helvetica, sans-serif, serif, EmojiFont; font-weight: bold;\">" + token
+				+ "</span> <br>                                                                                                                                                                                                            "
+				+ "								</div>                                                                                                                                                                                     "
+				+ "							</td>                                                                                                                                                                                          "
+				+ "						</tr>                                                                                                                                                                                              "
+				+ "						<tr bgcolor=\"#121a25\">                                                                                                                                                                           "
+				+ "							<td style=\"padding: 20px; font-size: 12px; line-height: 17px; color: #c6d4df; font-family: Arial, Helvetica, sans-serif\">                                                                    "
+				+ "								Se você não está tentando alterar sua senha, ignore este e-mail.                                                                                                                           "
+				+ "								É possível que outro usuário inseriu suas informações de login incorretamente.                                                                                                             "
+				+ "							</td>                                                                                                                                                                                          "
+				+ "						</tr>                                                                                                                                                                                              "
+				+ "					</tbody>                                                                                                                                                                                               "
+				+ "				</table>                                                                                                                                                                                                   "
+				+ "			</td>                                                                                                                                                                                                          "
+				+ "		</tr>                                                                                                                                                                                                              "
+				+ "	</tbody>                                                                                                                                                                                                               "
+				+ "</table>";
 
 		try {
 			Message message = new MimeMessage(session);
-			message = constructMessageHeader(message, from, to, subject);
+			message = constructMessageHeader(message, from, user.getEmail(), subject);
 			message = construckBodyMessage(message, bodyMessage);
 			Transport.send(message);
 		} catch (java.lang.Exception e) {
@@ -91,15 +127,9 @@ public class Mail {
 	}
 
 	private Message construckBodyMessage(Message message, String bodyMessage) {
-		BodyPart messageBodyPart = new MimeBodyPart();
 
 		try {
-			messageBodyPart.setText(bodyMessage);
-
-			Multipart multipart = new MimeMultipart();
-
-			multipart.addBodyPart(messageBodyPart);
-			message.setContent(multipart);
+			message.setContent(bodyMessage, "text/html");
 		} catch (java.lang.Exception e) {
 			e.printStackTrace();
 		}
@@ -139,6 +169,7 @@ public class Mail {
 
 	private Session getSession(Properties props, final String username, final String password) {
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
@@ -179,3 +210,6 @@ public class Mail {
 	}
 
 }
+
+
+

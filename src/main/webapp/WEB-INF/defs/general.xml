@@ -98,15 +98,15 @@
 
 	<definition name="page_error" extends="common-clean">
 		<put-attribute name="title" value="Erro" />
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/page_error.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/page_error.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
 	</definition>
 
-	<definition name="error-500" extends="common-clean">
-		<put-attribute name="title" value="error-500" />
-		<put-attribute name="body" value="/WEB-INF/jsp/admin/error-500.jsp" />
+	<definition name="error-404" extends="common-clean">
+		<put-attribute name="title" value="Erro" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/error-404.jsp" />
 		<put-list-attribute name="cssPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
@@ -120,6 +120,33 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/js/admin/login.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="user-has-token" extends="common-clean">
+		<put-attribute name="title" value="Recuperar Senha" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-has-token.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="user-password-recovery" extends="common-clean">
+		<put-attribute name="title" value="Recuperar Senha" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-password-recovery.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
+		</put-list-attribute>
+		<put-list-attribute name="jsPage" inherit="true">
+			<add-attribute value="/resources/js/admin/user-password-recovery.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="first-time-login" extends="common-clean">
+		<put-attribute name="title" value="Primeiro Login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/first-time-login.jsp" />
+		<put-list-attribute name="cssPage" inherit="true">
+			<add-attribute value="/resources/stack-admin/app-assets/css/pages/login-register.min.css" />
 		</put-list-attribute>
 	</definition>
 

@@ -3,6 +3,7 @@ package br.arantes.admin.controller;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,6 +24,7 @@ import com.google.gson.Gson;
 import br.arantes.admin.entity.User;
 import br.arantes.admin.service.RoleService;
 import br.arantes.admin.service.UserService;
+import br.arantes.util.Mail;
 
 @Controller
 public class UserController {
@@ -108,6 +110,76 @@ public class UserController {
 		model.addAttribute("roles", roleService.findAll());
 
 		return "user-register";
+	}
+
+	@RequestMapping(value = "/user-password-recovery", method = RequestMethod.GET)
+	public String showPasswordRecovery(Model model, Principal principal, HttpServletRequest request) {
+
+		return "user-password-recovery";
+	}
+
+	@RequestMapping(value = "/user-password-recovery", method = RequestMethod.POST)
+	public String doPasswordRecovery(Model model, Principal principal, HttpServletRequest request, @RequestParam String idLegal) {
+		String token = UUID.randomUUID().toString().toUpperCase().substring(0, 6);
+
+		User user = userService.findByIdLegal(idLegal);
+		user.setToken(token);
+
+		userService.save(user);
+
+		new Mail().sendMailPasswordRecovery(user, token);
+
+		return "redirect:/user-has-token.html?idLegal=" + idLegal;
+	}
+
+	@RequestMapping(value = "/user-has-token", method = RequestMethod.GET)
+	public String showUserHasToken(Model model, Principal principal, HttpServletRequest request, @RequestParam(defaultValue = "") String idLegal) {
+		model.addAttribute("idLegal", idLegal);
+		return "user-has-token";
+	}
+
+	@RequestMapping(value = "/user-has-token", method = RequestMethod.POST)
+	public String doUserHasToken(Model model, Principal principal, HttpServletRequest request, @RequestParam String idLegal, @RequestParam String token, @RequestParam String password) {
+
+		User user = userService.findByIdLegal(idLegal);
+
+		if (!user.getToken().equalsIgnoreCase(token))
+			return "redirect:/user-has-token.html?tokenWrong=true&idLegal=" + idLegal;
+
+		user.setPassword(new BCryptPasswordEncoder().encode(password));
+		userService.save(user);
+
+		return "redirect:/login.html?passwordChange=true";
+	}
+
+	@RequestMapping(value = "/first-time-login/{id}", method = RequestMethod.GET)
+	public String showFistTimeLogin(Model model, Principal principal, HttpServletRequest request, @PathVariable int id) {
+		User user = userService.findById(id);
+
+		if (user.getFirstTimeLogin()) {
+			model.addAttribute("user", user);
+
+			return "first-time-login";
+		} else {
+			return "redirect:/login.html";
+		}
+
+	}
+
+	@RequestMapping(value = "/first-time-login", method = RequestMethod.POST)
+	public String doFirstTimeLogin(Model model, Principal principal, HttpServletRequest request, @RequestParam int id, @RequestParam String password) {
+
+		User user = userService.findById(id);
+
+		if (user.getFirstTimeLogin()) {
+			user.setPassword(new BCryptPasswordEncoder().encode(password));
+			user.setFirstTimeLogin(false);
+			userService.save(user);
+
+			return "redirect:/login.html?passwordChange=true";
+		}
+
+		return "redirect:/login.html";
 	}
 
 	@ResponseBody

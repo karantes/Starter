@@ -55,6 +55,12 @@ public class User {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;
 
+	@Column(name = "tx_token")
+	private String token;
+
+	@Column(name = "dt_limite_token")
+	private LocalDateTime dtLimiteToken;
+
 	public Integer getId() {
 		return id;
 	}
@@ -133,6 +139,22 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public LocalDateTime getDtLimiteToken() {
+		return dtLimiteToken;
+	}
+
+	public void setDtLimiteToken(LocalDateTime dtLimiteToken) {
+		this.dtLimiteToken = dtLimiteToken;
 	}
 
 	public Boolean hasFuncionalidade(String value) {
