@@ -50,7 +50,7 @@
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Método: </label> <br>
-										<form:select path="method" class="form-control" required="required">
+										<form:select path="method" class="form-control">
 											<form:option value="">Nenhum</form:option>
 											<form:options items="${methods }" />
 										</form:select>

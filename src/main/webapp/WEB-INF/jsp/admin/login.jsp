@@ -43,7 +43,7 @@
 								<span>Facil Acesso</span>
 							</p>
 							<div class="card-body">
-								<form class="form-horizontal" action='<spring:url value="/login"/>' method="post" novalidate>
+								<form class="form-horizontal" action='<spring:url value="/login"/>' method="post">
 									<fieldset class="form-group position-relative has-icon-left">
 										<input type="number" class="form-control" id="username" name="username"
 											value="${pageContext.request.session.getAttribute('username')}" placeholder="CPF/CNPJ" required>

@@ -1,4 +1,26 @@
 $(function() {
+	 $('.btn-block').on('click', function() {
+		$(this).closest('form').on('submit', function() {
+				if ($(this).valid()) {
+					var block_ele = $(this).closest('.card');
+					$(block_ele).block({
+						message : '<div class="ft-refresh-cw icon-spin font-medium-2"></div>',
+						// timeout : 3000, // unblock after 3 seconds
+						overlayCSS : {
+							backgroundColor : '#fff',
+							opacity : 0.8,
+							cursor : 'wait'
+						},
+						css : {
+							border : 0,
+							padding : 0,
+							backgroundColor : 'transparent'
+						}
+					});
+				}
+			})
+    });
+
 	$('input.currency').each(function() {
 		for (var i = 0; i < 10; i++) {
 			if ($(this).val().endsWith('.' + i)) {
