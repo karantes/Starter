@@ -29,7 +29,7 @@
 				<div class="card-header">
 					<h4 class="card-title">Lista de Funcionalidades</h4>
 					<br> <a href='<spring:url value="/funcionalidade-register.html"/>' style="width: auto;">
-						<button class="btn btn-primary">Nova Funcionalidade</button>
+						<button class="btn btn-block block-element btn-primary" style="width: auto;">Nova Funcionalidade</button>
 					</a> <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
 					<div class="heading-elements">
 						<ul class="list-inline mb-0">

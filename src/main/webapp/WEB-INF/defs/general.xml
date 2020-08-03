@@ -43,6 +43,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/extensions/block-ui.js" />
 			<add-attribute value="/resources/js/admin/default.js" />
 		</put-list-attribute>
 	</definition>
@@ -92,6 +93,7 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
+			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/extensions/block-ui.js" />
 			<add-attribute value="/resources/js/admin/default.js" />
 		</put-list-attribute>
 	</definition>
