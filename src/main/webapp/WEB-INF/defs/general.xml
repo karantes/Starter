@@ -43,7 +43,6 @@
 		</put-list-attribute>
 		<put-list-attribute name="jsPage" inherit="true">
 			<add-attribute value="/resources/stack-admin/jquery-migrate-3.0.0.min.js" />
-			<add-attribute value="/resources/stack-admin/app-assets/js/scripts/extensions/block-ui.js" />
 			<add-attribute value="/resources/js/admin/default.js" />
 		</put-list-attribute>
 	</definition>
@@ -124,7 +123,7 @@
 			<add-attribute value="/resources/js/admin/login.js" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<definition name="user-has-token" extends="common-clean">
 		<put-attribute name="title" value="Recuperar Senha" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin/user-has-token.jsp" />

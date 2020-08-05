@@ -1,25 +1,23 @@
 $(function() {
-	 $('.btn-block').on('click', function() {
-		$(this).closest('form').on('submit', function() {
-				if ($(this).valid()) {
-					var block_ele = $(this).closest('.card');
-					$(block_ele).block({
-						message : '<div class="ft-refresh-cw icon-spin font-medium-2"></div>',
-						// timeout : 3000, // unblock after 3 seconds
-						overlayCSS : {
-							backgroundColor : '#fff',
-							opacity : 0.8,
-							cursor : 'wait'
-						},
-						css : {
-							border : 0,
-							padding : 0,
-							backgroundColor : 'transparent'
-						}
-					});
+	$('.block-element').on('click', function() {
+		if ($(this).closest('form')[0].name.validity.valid) {
+			var block_ele = $(this).closest('.card');
+			$(block_ele).block({
+				message: '<div class="ft-refresh-cw icon-spin font-medium-2"></div>',
+				// timeout : 3000, // unblock after 3 seconds
+				overlayCSS: {
+					backgroundColor: '#fff',
+					opacity: 0.8,
+					cursor: 'wait'
+				},
+				css: {
+					border: 0,
+					padding: 0,
+					backgroundColor: 'transparent'
 				}
-			})
-    });
+			});
+		}
+	});
 
 	$('input.currency').each(function() {
 		for (var i = 0; i < 10; i++) {
@@ -61,68 +59,68 @@ $(function() {
 	});
 
 	$('.table')
-			.each(
-					function() {
-						if (!$(this).hasClass('simple-table'))
-							$(this)
-									.DataTable(
-											{
-												destroy : true,
-												scrollX : true,
-												pageLength : 10,
-												dom : 'Bfrtip',
-												ordering : !$(this).hasClass(
-														'ignore-ordering'),
-												buttons : [
-														{
-															extend : 'excelHtml5',
-															footer : true
-														},
-														{
-															extend : 'csvHtml5',
-															footer : true
-														},
-														{
-															extend : 'print',
-															orientation : !$(
-																	this)
-																	.hasClass(
-																			'portrait') ? 'landscape'
-																	: 'portrait',
-															footer : true
-														},
-														{
-															extend : 'pdf',
-															orientation : !$(
-																	this)
-																	.hasClass(
-																			'portrait') ? 'landscape'
-																	: 'portrait',
-															pageSize : 'LEGAL',
-															footer : true
-														},
-														{
-															extend : 'pageLength',
-															footer : true
-														} ]
-											});
-						else
-							$(this).DataTable({
-								destroy : true,
-								scrollX : true,
-								searching : false,
-								lengthChange : false,
-								paging : false,
-								ordering : false,
-								info : false
+		.each(
+			function() {
+				if (!$(this).hasClass('simple-table'))
+					$(this)
+						.DataTable(
+							{
+								destroy: true,
+								scrollX: true,
+								pageLength: 10,
+								dom: 'Bfrtip',
+								ordering: !$(this).hasClass(
+									'ignore-ordering'),
+								buttons: [
+									{
+										extend: 'excelHtml5',
+										footer: true
+									},
+									{
+										extend: 'csvHtml5',
+										footer: true
+									},
+									{
+										extend: 'print',
+										orientation: !$(
+											this)
+											.hasClass(
+												'portrait') ? 'landscape'
+											: 'portrait',
+										footer: true
+									},
+									{
+										extend: 'pdf',
+										orientation: !$(
+											this)
+											.hasClass(
+												'portrait') ? 'landscape'
+											: 'portrait',
+										pageSize: 'LEGAL',
+										footer: true
+									},
+									{
+										extend: 'pageLength',
+										footer: true
+									}]
 							});
-
+				else
+					$(this).DataTable({
+						destroy: true,
+						scrollX: true,
+						searching: false,
+						lengthChange: false,
+						paging: false,
+						ordering: false,
+						info: false
 					});
+
+			});
 
 });
 
 function formataDinheiro(n) {
 	return "R$ "
-			+ parseFloat(n).toFixed(2).replace('.', ',').replace(
-					/(\d)(?=(\d{3})+\,)/g, "$1.");
+		+ parseFloat(n).toFixed(2).replace('.', ',').replace(
+			/(\d)(?=(\d{3})+\,)/g, "$1.");
 }
