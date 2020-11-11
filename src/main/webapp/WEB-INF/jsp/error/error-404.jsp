@@ -25,7 +25,7 @@
 					<div class="card-content">
 						<div class="row py-2">
 							<div class="col-12 col-sm-6 col-md-6 mb-1">
-								<a href='<spring:url value="/home.html"/>' class="btn btn-primary btn-block"><i class="feather icon-home"></i> Home</a>
+								<a href='<spring:url value="/home"/>' class="btn btn-primary btn-block"><i class="feather icon-home"></i> Home</a>
 							</div>
 							<div class="col-12 col-sm-6 col-md-6 mb-1">
 								<a href="#" onclick="window.history.back();" class="btn btn-danger btn-block"><i class="feather icon-rewind"></i> Voltar</a>

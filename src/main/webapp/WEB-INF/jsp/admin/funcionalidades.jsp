@@ -17,7 +17,7 @@
 				<div class="row breadcrumbs-top">
 					<div class="breadcrumb-wrapper col-12">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href='<spring:url value="/home.html"/>'>Home</a></li>
+							<li class="breadcrumb-item"><a href='<spring:url value="/home"/>'>Home</a></li>
 							<li class="breadcrumb-item">Funcionalidades</li>
 						</ol>
 					</div>
@@ -28,7 +28,7 @@
 			<div class="card">
 				<div class="card-header">
 					<h4 class="card-title">Lista de Funcionalidades</h4>
-					<br> <a href='<spring:url value="/funcionalidade-register.html"/>' style="width: auto;">
+					<br> <a href='<spring:url value="/funcionalidade-register"/>' style="width: auto;">
 						<button class="btn btn-block block-element btn-primary" style="width: auto;">Nova Funcionalidade</button>
 					</a> <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
 					<div class="heading-elements">
@@ -59,8 +59,8 @@
 										<td>${funcionalidade.name }</td>
 										<td>${funcionalidade.value }</td>
 										<td>${funcionalidade.method }</td>
-										<td style="font-size: 150%;"><a href='<spring:url value="/funcionalidade-update/${funcionalidade.id }.html"/>'> <i
-												class="fa fa-edit" title="Editar"></i></a> &nbsp; <a href='<spring:url value="/delete-funcionalidade/${funcionalidade.id }.html"/>'>
+										<td style="font-size: 150%;"><a href='<spring:url value="/funcionalidade-update/${funcionalidade.id }"/>'> <i
+												class="fa fa-edit" title="Editar"></i></a> &nbsp; <a href='<spring:url value="/delete-funcionalidade/${funcionalidade.id }"/>'>
 												<i class="fa fa-trash" title="Apagar"></i>
 										</a></td>
 									</tr>

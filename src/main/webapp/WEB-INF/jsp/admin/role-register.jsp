@@ -16,8 +16,8 @@
 				<div class="row breadcrumbs-top">
 					<div class="breadcrumb-wrapper col-12">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href='<spring:url value="/home.html"/>'>Home</a></li>
-							<li class="breadcrumb-item"><a href='<spring:url value="/roles.html"/>'>Permissões</a></li>
+							<li class="breadcrumb-item"><a href='<spring:url value="/home"/>'>Home</a></li>
+							<li class="breadcrumb-item"><a href='<spring:url value="/roles"/>'>Permissões</a></li>
 							<li class="breadcrumb-item">Cadastro</li>
 						</ol>
 					</div>
@@ -31,7 +31,7 @@
 				</div>
 				<div class="card-content">
 					<div class="card-body">
-						<form:form modelAttribute="role" action="${pageContext.request.contextPath}/role-register.html" method="post" id="formRole">
+						<form:form modelAttribute="role" action="${pageContext.request.contextPath}/role-register" method="post" id="formRole">
 							<div class="row">
 								<form:hidden path="id" />
 								<div class="col-md-3">

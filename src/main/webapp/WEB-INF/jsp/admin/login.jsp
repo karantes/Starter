@@ -61,7 +61,7 @@
 									<div class="form-group row">
 										<div class="col-sm-6 col-12 text-center text-sm-left pr-0"></div>
 										<div class="col-sm-6 col-12 float-sm-left text-center text-sm-right">
-											<a href='<spring:url value="/user-password-recovery.html"/>' class="card-link">Esqueci minha senha</a>
+											<a href='<spring:url value="/user-password-recovery"/>' class="card-link">Esqueci minha senha</a>
 										</div>
 									</div>
 									<button type="submit" class="btn btn-outline-primary btn-block">
@@ -74,7 +74,7 @@
 								<span>Novo Aqui ?</span>
 							</p>
 							<div class="card-body">
-								<a href='<spring:url value="/login-register.html"/>' class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
+								<a href='<spring:url value="/login-register"/>' class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i>
 									Registrar</a>
 							</div>
 						</div>

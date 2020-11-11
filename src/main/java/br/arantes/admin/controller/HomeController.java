@@ -21,7 +21,7 @@ public class HomeController {
 	@RequestMapping(value = "/home")
 	public String showHome(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");

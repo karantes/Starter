@@ -22,7 +22,7 @@ public class UrlAuthenticationFailureHandler implements AuthenticationFailureHan
 		request.getSession().setAttribute("password", request.getParameter("password"));
 		if (response.isCommitted())
 			return;
-		redirectStrategy.sendRedirect(request, response, "/login.html?error=true");
+		redirectStrategy.sendRedirect(request, response, "/login?error=true");
 	}
 
 }

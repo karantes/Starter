@@ -21,7 +21,7 @@
 	<div class="card border-grey border-lighten-3 px-1 py-1 m-0">
 		<div class="card-header border-0">
 			<div class="card-title text-center">
-				<a href="${pageContext.request.contextPath}/login.html"><img src="${pageContext.request.contextPath}/resources/images/Chronos Vertical.png" style="width: 150px; height: 150px;" alt="branding logo"></a>
+				<a href="${pageContext.request.contextPath}/login"><img src="${pageContext.request.contextPath}/resources/images/Chronos Vertical.png" style="width: 150px; height: 150px;" alt="branding logo"></a>
 				<h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
 					<span>Atualização de senha</span>
 				</h6>
@@ -30,7 +30,7 @@
 
 		<div class="card-content">
 			<div class="card-body">
-				<form class="form-horizontal" action='<spring:url value="/first-time-login.html"/>' id="formLogin" method="post" novalidate>
+				<form class="form-horizontal" action='<spring:url value="/first-time-login"/>' id="formLogin" method="post" novalidate>
 					<input type="hidden" name="id" id="id" value="${user.id}">
 
 					<fieldset class="form-group position-relative has-icon-left">

@@ -15,7 +15,7 @@
 			<ul class="nav navbar-nav flex-row">
 				<li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
 						class="feather icon-menu font-large-1"></i></a></li>
-				<li class="nav-item"><a class="navbar-brand" href='<spring:url value="/home.html"/>'><img class="brand-logo" alt="stack admin logo"
+				<li class="nav-item"><a class="navbar-brand" href='<spring:url value="/home"/>'><img class="brand-logo" alt="stack admin logo"
 						src="${pageContext.request.contextPath}/resources/stack-admin/app-assets/images/logo/stack-logo-light.png">
 						<h2 class="brand-text">Starter</h2> </a></li>
 				<li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i
@@ -90,9 +90,9 @@
 							</div> <span class="user-name">${usuarioLogado.name }</span>
 					</a>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="user-profile.html"><i class="feather icon-user"></i> Editar Perfil</a>
+							<a class="dropdown-item" href="user-profile"><i class="feather icon-user"></i> Editar Perfil</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href='<spring:url value="/logout.html" />'><i class="feather icon-power"></i> Logout</a>
+							<a class="dropdown-item" href='<spring:url value="/logout" />'><i class="feather icon-power"></i> Logout</a>
 						</div></li>
 				</ul>
 			</div>

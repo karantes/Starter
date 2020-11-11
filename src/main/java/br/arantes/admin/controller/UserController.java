@@ -38,7 +38,7 @@ public class UserController {
 	@RequestMapping(value = "/users")
 	public String showRoles(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -51,7 +51,7 @@ public class UserController {
 	@RequestMapping(value = "/user-register", method = RequestMethod.GET)
 	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -66,7 +66,7 @@ public class UserController {
 	public String doRegister(	Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute User user, @RequestParam(required = false) String psWord,
 								@RequestParam(required = false) List<Integer> idRoles) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		boolean isAdmin = roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod());
 		if (!isAdmin && !user.getIdLegal().equals(principal.getName()))
@@ -92,16 +92,16 @@ public class UserController {
 		userService.save(user);
 
 		if (isAdmin)
-			return "redirect:/users.html";
+			return "redirect:/users";
 		else
-			return "redirect:/home.html";
+			return "redirect:/home";
 
 	}
 
 	@RequestMapping(value = "/user-update/{id}")
 	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -129,7 +129,7 @@ public class UserController {
 
 		new Mail().sendMailPasswordRecovery(user, token);
 
-		return "redirect:/user-has-token.html?idLegal=" + idLegal;
+		return "redirect:/user-has-token?idLegal=" + idLegal;
 	}
 
 	@RequestMapping(value = "/user-has-token", method = RequestMethod.GET)
@@ -144,12 +144,12 @@ public class UserController {
 		User user = userService.findByIdLegal(idLegal);
 
 		if (!user.getToken().equalsIgnoreCase(token))
-			return "redirect:/user-has-token.html?tokenWrong=true&idLegal=" + idLegal;
+			return "redirect:/user-has-token?tokenWrong=true&idLegal=" + idLegal;
 
 		user.setPassword(new BCryptPasswordEncoder().encode(password));
 		userService.save(user);
 
-		return "redirect:/login.html?passwordChange=true";
+		return "redirect:/login?passwordChange=true";
 	}
 
 	@RequestMapping(value = "/first-time-login/{id}", method = RequestMethod.GET)
@@ -161,7 +161,7 @@ public class UserController {
 
 			return "first-time-login";
 		} else {
-			return "redirect:/login.html";
+			return "redirect:/login";
 		}
 
 	}
@@ -176,10 +176,10 @@ public class UserController {
 			user.setFirstTimeLogin(false);
 			userService.save(user);
 
-			return "redirect:/login.html?passwordChange=true";
+			return "redirect:/login?passwordChange=true";
 		}
 
-		return "redirect:/login.html";
+		return "redirect:/login";
 	}
 
 	@ResponseBody

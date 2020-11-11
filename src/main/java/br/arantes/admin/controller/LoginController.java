@@ -50,7 +50,7 @@ public class LoginController {
 
 		userService.save(user);
 
-		return "redirect:/login.html";
+		return "redirect:/login";
 
 	}
 

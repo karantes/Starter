@@ -25,7 +25,7 @@
 					<div class="card border-grey border-lighten-3 px-1 py-1 m-0">
 						<div class="card-header border-0">
 							<div class="card-title text-center">
-								<a href="${pageContext.request.contextPath}/login.html"><img
+								<a href="${pageContext.request.contextPath}/login"><img
 									src="${pageContext.request.contextPath}/resources/stack-admin/app-assets/images/logo/stack-logo-dark.png" alt="branding logo"> </a>
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 								<span>Recuperação de senha</span>
 							</p>
 							<div class="card-body">
-								<form class="form-horizontal" action='<spring:url value="/user-has-token.html"/>' method="post" id="formRecovery">
+								<form class="form-horizontal" action='<spring:url value="/user-has-token"/>' method="post" id="formRecovery">
 									<fieldset class="form-group position-relative has-icon-left">
 										<input type="number" step="1" class="form-control" id="idLegal" name="idLegal" value="${idLegal }" placeholder="CPF/CNPJ"
 											required="required">

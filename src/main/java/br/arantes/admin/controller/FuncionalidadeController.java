@@ -29,7 +29,7 @@ public class FuncionalidadeController {
 	@RequestMapping(value = "/funcionalidades")
 	public String showFuncionalidades(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -42,7 +42,7 @@ public class FuncionalidadeController {
 	@RequestMapping(value = "/funcionalidade-register", method = RequestMethod.GET)
 	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -56,20 +56,20 @@ public class FuncionalidadeController {
 	@RequestMapping(value = "/funcionalidade-register", method = RequestMethod.POST)
 	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Funcionalidade funcionalidade) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
 
 		funcionalidadeService.save(funcionalidade);
 
-		return "redirect:/funcionalidades.html";
+		return "redirect:/funcionalidades";
 	}
 
 	@RequestMapping(value = "/funcionalidade-update/{id}")
 	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -83,13 +83,13 @@ public class FuncionalidadeController {
 	@RequestMapping(value = "/delete-funcionalidade/{id}")
 	public String doDelete(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
 
 		funcionalidadeService.deleteById(id);
 
-		return "redirect:/funcionalidades.html";
+		return "redirect:/funcionalidades";
 	}
 }

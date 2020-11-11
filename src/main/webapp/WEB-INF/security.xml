@@ -8,10 +8,10 @@
 
 	<http use-expressions="true">
 		<csrf disabled="true" />
-		<form-login login-page='/login.html' authentication-failure-url="/login.html?error=true"
+		<form-login login-page='/login' authentication-failure-url="/login?error=true"
 			authentication-success-handler-ref="authenticationSuccessHandler" authentication-failure-handler-ref="authenticationFailureHandler"
 			username-parameter="username" password-parameter="password" />
-		<logout logout-url="/logout.html" logout-success-url="/login.html" />
+		<logout logout-url="/logout" logout-success-url="/login" />
 		<headers>
 			<frame-options policy="SAMEORIGIN" />
 		</headers>

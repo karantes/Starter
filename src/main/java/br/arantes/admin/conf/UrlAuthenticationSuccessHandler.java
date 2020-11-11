@@ -43,7 +43,7 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
 	 * Builds the target URL according to the logic defined in the main class Javadoc.
 	 */
 	protected String determineTargetUrl(Authentication authentication) {
-		return "/home.html";
+		return "/home";
 	}
 
 	protected void clearAuthenticationAttributes(HttpServletRequest request, Authentication authentication) {

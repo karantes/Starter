@@ -29,7 +29,7 @@ public class RoleController {
 	@RequestMapping(value = "/roles")
 	public String showRoles(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -42,7 +42,7 @@ public class RoleController {
 	@RequestMapping(value = "/role-register", method = RequestMethod.GET)
 	public String showRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -56,20 +56,20 @@ public class RoleController {
 	@RequestMapping(value = "/role-register", method = RequestMethod.POST)
 	public String doRegister(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @ModelAttribute Role role) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
 
 		roleService.save(role);
 
-		return "redirect:/roles.html";
+		return "redirect:/roles";
 	}
 
 	@RequestMapping(value = "/role-update/{id}")
 	public String showUpdate(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
@@ -83,13 +83,13 @@ public class RoleController {
 	@RequestMapping(value = "/delete-role/{id}")
 	public String doDelete(Model model, Principal principal, HttpServletRequest request, Authentication authentication, @PathVariable Integer id) throws Exception {
 		if (principal == null)
-			return "redirect:/login.html?authenticate=false";
+			return "redirect:/login?authenticate=false";
 		if (!roleService.isAuthenticated(principal.getName(), new Object() {
 		}.getClass().getEnclosingMethod()))
 			throw new Exception("Usuario não Autorizado");
 
 		roleService.deleteById(id);
 
-		return "redirect:/roles.html";
+		return "redirect:/roles";
 	}
 }
