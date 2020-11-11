@@ -1,24 +1,4 @@
 $(function() {
-	$('.block-element').on('click', function() {
-		if ($(this).closest('form')[0].name.validity.valid) {
-			var block_ele = $(this).closest('.card');
-			$(block_ele).block({
-				message: '<div class="ft-refresh-cw icon-spin font-medium-2"></div>',
-				// timeout : 3000, // unblock after 3 seconds
-				overlayCSS: {
-					backgroundColor: '#fff',
-					opacity: 0.8,
-					cursor: 'wait'
-				},
-				css: {
-					border: 0,
-					padding: 0,
-					backgroundColor: 'transparent'
-				}
-			});
-		}
-	});
-
 	$('input.currency').each(function() {
 		for (var i = 0; i < 10; i++) {
 			if ($(this).val().endsWith('.' + i)) {
@@ -55,6 +35,45 @@ $(function() {
 			$('input.currency').each(function() {
 				$(this).val($(this).val().replace(new RegExp(',', 'g'), ''));
 			})
+			
+			var isRequired = false;
+			$(this).find('input, textarea, select').each(function() {
+				if ($(this).prop('required')){
+					if(($(this).val() == '' || $(this).val() == null)){
+						isRequired = true;
+					} else  if(($(this).hasClass('currency') && $(this).val() == '0.00') || ($(this).hasClass('currency_4') && $(this).val() == '0.0000'))
+						isRequired = true;
+				}
+			});
+			
+			
+			try {
+				if (isRequired) {
+					Swal.fire("Atenção!", "Campos obrigatórios não preenchidos", "error");
+					event.preventDefault();
+					$('.blockOverlay').remove();
+					return;
+				} else if ($(this).find(':submit').attr('class').includes('block-element')) {
+					var block_ele = $(this).closest('.card');
+					$(block_ele).block({
+							message : '<div class="ft-refresh-cw icon-spin font-medium-2"></div>',
+							overlayCSS : {
+								backgroundColor : '#fff',
+								opacity : 0.8,
+								cursor : 'wait'
+							},
+							css : {
+								border : 0,
+								padding : 0,
+								backgroundColor : 'transparent'
+							}
+					});
+
+				}
+			} catch (e) {
+				console.log(e);
+			}
+			
 		})
 	});
 
